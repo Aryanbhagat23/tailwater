@@ -1,0 +1,21 @@
+[project]
+name = "tailwater"
+version = "0.1.0"
+description = "Risk-constrained reinforcement learning for irrigation scheduling"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "pandas>=2.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "matplotlib>=3.7"]
+app = ["streamlit>=1.30", "matplotlib>=3.7"]
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
