@@ -143,12 +143,16 @@ def load_ghcn_daily(path) -> "pd.DataFrame":
 
 
 def load_ghcn_seasons(path, lat_deg: float, start_mmdd: str = "03-01", length: int = 120,
-                      max_missing: int = 6, station: str = "") -> WeatherSet:
+                      max_missing: int = 6, station: str = "", et0_scale: float = 1.0) -> WeatherSet:
     """One season per calendar year starting on ``start_mmdd``.
 
     A year is kept only if each of PRCP, TMAX, TMIN has at most
     ``max_missing`` missing days in the window. Missing PRCP is filled with 0
     (counted in ``meta``); missing temperatures are linearly interpolated.
+    ``et0_scale`` multiplies Hargreaves ET0 (sensitivity analysis: Hargreaves
+    is known to overestimate in humid climates; at Belle Glade it comes out at
+    ~0.92x Class-A pan evaporation in Mar-Jun, above the usual 0.65-0.85 pan
+    coefficients).
     """
     import pandas as pd
 
@@ -167,7 +171,7 @@ def load_ghcn_seasons(path, lat_deg: float, start_mmdd: str = "03-01", length: i
         lo, hi = np.minimum(tx, tn), np.maximum(tx, tn)  # guard against swapped pairs
         doy = seg.index.dayofyear.to_numpy()
         rains.append(seg["prcp"].fillna(0.0).to_numpy())
-        et0s.append(hargreaves_et0(hi, lo, lat_deg, doy))
+        et0s.append(et0_scale * hargreaves_et0(hi, lo, lat_deg, doy))
         years.append(year)
         filled.append(int(miss["prcp"]))
     return WeatherSet(np.array(rains), np.array(et0s), years, source=f"GHCN {station}".strip(),

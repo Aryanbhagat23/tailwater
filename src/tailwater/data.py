@@ -14,9 +14,9 @@ SEASON_START = "03-01"   # spring maize: 1 March - 28 June, dry-to-wet season tr
 SEASON_LENGTH = 120
 
 
-def belle_glade_seasons() -> WeatherSet:
+def belle_glade_seasons(et0_scale: float = 1.0) -> WeatherSet:
     path = RAW / f"{BELLE_GLADE['station']}.csv"
     if not path.exists():
         raise FileNotFoundError(f"{path} missing; run: python scripts/fetch_noaa.py")
     return load_ghcn_seasons(path, BELLE_GLADE["lat"], SEASON_START, SEASON_LENGTH,
-                             station=BELLE_GLADE["station"])
+                             station=BELLE_GLADE["station"], et0_scale=et0_scale)

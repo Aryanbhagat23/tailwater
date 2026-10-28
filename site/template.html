@@ -1,0 +1,768 @@
+<title>Tailwater</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a field logbook. One reading column, with full-width instrument bands
+   for the season race and the frontier. Neutrals lean toward sawgrass green. */
+:root {
+  --bg: #f2f4ef;
+  --surface: #ffffff;
+  --ink: #16201a;
+  --ink-2: #4b574f;
+  --muted: #7d887f;
+  --rule: #d9dfd6;
+  --grid: #e7ebe4;
+  --rain: #8fb0cc;
+  --stress: #f6e7c8;
+  --s1: #2a78d6;   /* CVaR-PPO */
+  --s2: #eb6834;   /* stage threshold */
+  --s3: #1baf7a;   /* ET controller */
+  --s0: #8a897f;   /* rain-fed */
+  --g1: #52514e; --g2: #8a897f; --g3: #b5b4ac;
+  --h0: #e9eef3; --h1: #86b6ef; --h2: #3987e5; --h3: #184f95;
+  --focus: #2a78d6;
+  --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --step--1: 0.8125rem; --step-0: 1rem; --step-1: 1.25rem; --step-2: 1.75rem; --step-3: 2.75rem;
+  --radius: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1411; --surface: #171e19; --ink: #e5ebe6; --ink-2: #b2bdb5; --muted: #7e8981;
+    --rule: #29322c; --grid: #212923; --rain: #5d84a6; --stress: #3a3220;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s0: #8a897f;
+    --g1: #c3c2b7; --g2: #8a897f; --g3: #5f5e58;
+    --h0: #1d2622; --h1: #184f95; --h2: #2a78d6; --h3: #86b6ef; --focus: #6da7ec;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1411; --surface: #171e19; --ink: #e5ebe6; --ink-2: #b2bdb5; --muted: #7e8981;
+  --rule: #29322c; --grid: #212923; --rain: #5d84a6; --stress: #3a3220;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s0: #8a897f;
+  --g1: #c3c2b7; --g2: #8a897f; --g3: #5f5e58;
+  --h0: #1d2622; --h1: #184f95; --h2: #2a78d6; --h3: #86b6ef; --focus: #6da7ec;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: var(--step-0);
+       line-height: 1.55; padding-left: max(16px, env(safe-area-inset-left, 0px));
+       padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 64px; }
+.wrap { max-width: 1120px; margin: 0 auto; }
+.col { max-width: 68ch; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; font-stretch: 125%; line-height: 0.95; }
+h2 { font-size: var(--step-2); font-weight: 750; font-stretch: 112%; line-height: 1.1; }
+h3 { font-size: var(--step-1); font-weight: 700; font-stretch: 100%; }
+p { margin: 0; }
+a { color: var(--s1); }
+.eyebrow { font-family: var(--font-data); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+header { padding-block: 48px 28px; display: grid; gap: 18px; border-bottom: 2px solid var(--ink); }
+header .lede { font-size: var(--step-1); color: var(--ink-2); max-width: 46ch; line-height: 1.4; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 22px; font-family: var(--font-data); font-size: var(--step--1); color: var(--ink-2); }
+.verdict { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; border-bottom: 1px solid var(--rule); }
+.verdict > div { padding: 18px 18px 18px 0; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.verdict > div + div { padding-left: 18px; border-left: 1px solid var(--rule); }
+.verdict .big { font-family: var(--font-display); font-size: var(--step-3); font-weight: 750; font-stretch: 100%; line-height: 1; font-variant-numeric: tabular-nums; }
+.verdict .cap { font-size: var(--step--1); color: var(--ink-2); }
+section { padding-block: 44px 8px; display: grid; gap: 16px; }
+section > .intro { display: grid; gap: 8px; }
+.intro p { color: var(--ink-2); max-width: 68ch; }
+.panel { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px; display: grid; gap: 14px; min-width: 0; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+.controls label { font-size: var(--step--1); color: var(--ink-2); display: flex; gap: 8px; align-items: center; }
+select, button, input[type=range] { font: inherit; font-size: var(--step--1); }
+select, button { color: var(--ink); background: var(--bg); border: 1px solid var(--rule); border-radius: 4px; padding: 6px 10px; }
+button { cursor: pointer; }
+button.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); min-width: 78px; font-weight: 600; }
+button.chip { border-radius: 999px; padding: 4px 11px; }
+button.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+input[type=range] { accent-color: var(--s1); width: 160px; }
+#day { width: 100%; }
+.chart { width: 100%; display: block; overflow: visible; }
+.chart text { fill: var(--muted); font-family: var(--font-data); font-size: 10.5px; }
+.chart .axis-title { fill: var(--ink-2); font-family: var(--font-body); font-size: 11.5px; }
+.chart .lbl { fill: var(--ink-2); font-family: var(--font-body); font-size: 11.5px; }
+.lanes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 820px) { .lanes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.lane { border: 1px solid var(--rule); border-radius: var(--radius); padding: 12px; display: grid; gap: 8px; min-width: 0; }
+.lane .name { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9375rem; }
+.sw { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.lane .rule-desc { font-size: 0.75rem; color: var(--muted); font-family: var(--font-data); min-height: 2.6em; }
+.lane .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.lane .stats div { display: grid; }
+.lane .stats .k { font-size: 0.6875rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.lane .stats .v { font-family: var(--font-data); font-size: 1.375rem; font-variant-numeric: tabular-nums; }
+.gauge { height: 8px; border-radius: 4px; background: var(--grid); position: relative; overflow: hidden; }
+.gauge > span { position: absolute; inset: 0 auto 0 0; border-radius: 4px; }
+.gauge > i { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--ink-2); }
+.note { font-size: var(--step--1); color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: var(--step--1); color: var(--ink-2); }
+.legend span { display: inline-flex; gap: 6px; align-items: center; }
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+@media (max-width: 820px) { .two { grid-template-columns: minmax(0, 1fr); } }
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.tiles div { padding: 10px 10px 10px 0; display: grid; }
+.tiles div + div { padding-left: 10px; border-left: 1px solid var(--rule); }
+.tiles .k { font-size: 0.6875rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.tiles .v { font-family: var(--font-data); font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+.slider-row { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr) 3.5rem; gap: 10px; align-items: center; font-size: var(--step--1); color: var(--ink-2); }
+.slider-row input { width: 100%; }
+.slider-row output { font-family: var(--font-data); text-align: right; color: var(--ink); }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: var(--step--1); }
+th, td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--rule); white-space: nowrap; font-variant-numeric: tabular-nums; }
+th:first-child, td:first-child { text-align: left; }
+th { font-weight: 600; color: var(--ink-2); font-size: 0.75rem; }
+td { font-family: var(--font-data); }
+td:first-child { font-family: var(--font-body); }
+.findings { display: grid; gap: 14px; }
+.finding { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 14px; padding-block: 12px; border-top: 1px solid var(--rule); }
+.finding .tag { font-family: var(--font-data); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding-top: 3px; }
+.finding p { color: var(--ink-2); }
+.finding strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 560px) { .finding { grid-template-columns: minmax(0, 1fr); gap: 2px; } .slider-row { grid-template-columns: minmax(0, 1fr) 3rem; } .slider-row span:first-child { grid-column: 1 / -1; } }
+#tip { position: fixed; pointer-events: none; z-index: 20; background: var(--surface); color: var(--ink); border: 1px solid var(--rule);
+       border-radius: 4px; padding: 7px 9px; font-size: 0.75rem; line-height: 1.45; box-shadow: 0 4px 14px rgb(0 0 0 / 0.12); max-width: 260px; }
+#tip b { font-weight: 600; }
+footer { margin-top: 48px; padding-top: 16px; border-top: 2px solid var(--ink); font-size: var(--step--1); color: var(--ink-2); display: grid; gap: 6px; }
+canvas { max-width: 100%; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">CAP 6629 Reinforcement Learning · Final project · Aryan Bhagat, FAU</span>
+  <h1>Tailwater</h1>
+  <p class="lede">How much irrigation water does it cost to protect the worst seasons, not just the average one? A learned controller with a constraint on its worst 5% of yields, tested on 74 real Florida springs.</p>
+  <div class="meta">
+    <span id="meta-station"></span>
+    <span>Spring maize, 1 March – 28 June</span>
+    <span>Daily decisions: 0 / 5 / 10 / 20 mm</span>
+    <span>Yield: FAO-33 stage model</span>
+  </div>
+</header>
+
+<div class="verdict" id="verdict"></div>
+
+<section id="race">
+  <div class="intro">
+    <span class="eyebrow">One season, four fields</span>
+    <h2>Same weather, different controllers</h2>
+    <p>Pick a year from the Belle Glade record and watch four fields get the same rain and heat. Each controller was tuned or trained on other years only, so this season is new to all of them.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <label for="year">Season <select id="year"></select></label>
+      <div class="controls" id="year-chips" role="group" aria-label="Quick picks"></div>
+    </div>
+    <div class="controls">
+      <button id="play" class="primary" type="button">Play</button>
+      <label for="speed">Speed <select id="speed"><option value="4">Slow</option><option value="10" selected>Normal</option><option value="30">Fast</option></select></label>
+      <span class="note num" id="daylabel"></span>
+    </div>
+    <input id="day" type="range" min="0" max="119" value="119" aria-label="Day of season">
+    <svg id="weather-chart" class="chart" role="img" aria-label="Daily rain and growth stages"></svg>
+    <svg id="moisture-chart" class="chart" role="img" aria-label="Soil moisture by field"></svg>
+    <div class="lanes" id="lanes"></div>
+    <p class="note" id="race-note"></p>
+  </div>
+</section>
+
+<section id="frontier">
+  <div class="intro">
+    <span class="eyebrow">The central figure</span>
+    <h2>Water against the worst years</h2>
+    <p>Each point is a controller scored on held-out years. Up is safer (higher yield in the worst 4 of 74 seasons), left uses less water. Baseline lines trace each rule family re-tuned for a range of reliability floors. Agent points carry ± one standard deviation across five training seeds.</p>
+  </div>
+  <div class="panel">
+    <div class="controls" role="group" aria-label="Y axis">
+      <button class="chip" type="button" data-metric="cvar5_yield" aria-pressed="true">Worst 5% (CVaR)</button>
+      <button class="chip" type="button" data-metric="mean_yield" aria-pressed="false">Average season</button>
+    </div>
+    <svg id="frontier-chart" class="chart" role="img" aria-label="Water versus yield frontier"></svg>
+    <div class="legend" id="frontier-legend"></div>
+    <div class="table-wrap"><table id="frontier-table"></table></div>
+  </div>
+</section>
+
+<section id="sandbox">
+  <div class="intro">
+    <span class="eyebrow">Try it</span>
+    <h2>Tune your own rule</h2>
+    <p>A two-trigger rule irrigates when soil water drops below a threshold, with a stricter threshold during flowering and grain fill, when maize is most sensitive. Move the sliders and the rule runs on all 74 seasons in your browser; its point appears on the frontier above as a black star.</p>
+  </div>
+  <div class="two">
+    <div class="panel">
+      <div class="slider-row"><span>Trigger, tolerant stages</span><input id="r-lo" type="range" min="10" max="95" step="5" value="40"><output id="r-lo-v" for="r-lo"></output></div>
+      <div class="slider-row"><span>Trigger, flowering + grain fill</span><input id="r-hi" type="range" min="10" max="95" step="5" value="50"><output id="r-hi-v" for="r-hi"></output></div>
+      <div class="slider-row"><span>Amount per irrigation</span><input id="r-amt" type="range" min="1" max="3" step="1" value="2"><output id="r-amt-v" for="r-amt"></output></div>
+      <div class="slider-row"><span>Skip if 3-day forecast ≥</span><input id="r-skip" type="range" min="0" max="4" step="1" value="4"><output id="r-skip-v" for="r-skip"></output></div>
+      <div class="tiles" id="rule-tiles"></div>
+      <p class="note">Scored on all 74 years, including any you tuned it on by eye, so it is an in-sample number; the frontier's baselines were tuned on other years.</p>
+    </div>
+    <div class="panel">
+      <h3>Every season, one dot</h3>
+      <svg id="strip-chart" class="chart" role="img" aria-label="Yield of each season under your rule"></svg>
+      <p class="note">Hover a dot for the year. The lowest four dots are the CVaR-5% tail.</p>
+    </div>
+  </div>
+</section>
+
+<section id="policy">
+  <div class="intro">
+    <span class="eyebrow">Inside the agent</span>
+    <h2>What the network decides</h2>
+    <p>The trained policy's choice for every soil-water level and day of the season, holding the other inputs fixed. Dashed lines mark the soil water where crop stress begins and the tuned stage-threshold rule's triggers.</p>
+  </div>
+  <div class="panel">
+    <div class="controls">
+      <label for="pm-model">Policy <select id="pm-model"></select></label>
+    </div>
+    <div class="slider-row"><span>3-day rain forecast</span><input id="pm-fc" type="range" min="0" max="40" step="1" value="0"><output id="pm-fc-v" for="pm-fc"></output></div>
+    <div class="slider-row"><span>Days since rain</span><input id="pm-dsr" type="range" min="0" max="15" step="1" value="5"><output id="pm-dsr-v" for="pm-dsr"></output></div>
+    <svg id="policy-chart" class="chart" role="img" aria-label="Policy map: irrigation amount by soil water and day"></svg>
+    <div class="legend" id="policy-legend"></div>
+  </div>
+</section>
+
+<section id="weather">
+  <div class="intro">
+    <span class="eyebrow">Why real weather</span>
+    <h2>The record has drought years</h2>
+    <p id="weather-text"></p>
+  </div>
+  <div class="panel">
+    <svg id="rain-chart" class="chart" role="img" aria-label="Season rainfall by year"></svg>
+    <p class="note">Bars: March–June rain. Click a year to load it into the season race.</p>
+  </div>
+</section>
+
+<section id="training">
+  <div class="intro">
+    <span class="eyebrow">Training</span>
+    <h2>The multiplier at work</h2>
+    <p>During training the Lagrange multiplier λ rises whenever the batch's worst-5% yield falls below the floor and relaxes once it is met. Lines are means over 5 seeds × 4 folds; bands are ± one standard deviation.</p>
+  </div>
+  <div class="panel">
+    <div class="two" id="curves"></div>
+    <div class="legend" id="curves-legend"></div>
+  </div>
+</section>
+
+<section id="findings">
+  <div class="intro">
+    <span class="eyebrow">What holds up</span>
+    <h2>Findings and limits</h2>
+  </div>
+  <div class="findings col" id="findings-list"></div>
+</section>
+
+<footer>
+  <span>Code, tests and full results: <a href="https://github.com/Aryanbhagat23/tailwater">github.com/Aryanbhagat23/tailwater</a></span>
+  <span>Weather: NOAA GHCN-Daily, station USC00080611 (Belle Glade, FL), via the NOAA Open Data mirror. ET0 by Hargreaves &amp; Samani (1985); crop response by FAO-33 (Doorenbos &amp; Kassam 1979) and FAO-56 (Allen et al. 1998).</span>
+</footer>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+/*__SIM__*/
+</script>
+<script>
+const D = /*__DATA__*/null;
+const M = TW.makeModel(D);
+const $ = s => document.querySelector(s);
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmt = (x, d = 0) => Number(x).toFixed(d);
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs = {}, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+const scale = (d0, d1, r0, r1) => x => r0 + (x - d0) / (d1 - d0) * (r1 - r0);
+function ticks(lo, hi, n) {
+  const step = Math.pow(10, Math.floor(Math.log10((hi - lo) / n)));
+  const err = (hi - lo) / n / step;
+  const s = step * (err >= 7.5 ? 10 : err >= 3.5 ? 5 : err >= 1.5 ? 2 : 1);
+  const out = [];
+  for (let v = Math.ceil(lo / s) * s; v <= hi + 1e-9; v += s) out.push(+v.toFixed(10));
+  return out;
+}
+const tip = $("#tip");
+function showTip(html, ev) {
+  tip.innerHTML = html; tip.hidden = false;
+  const r = tip.getBoundingClientRect();
+  let x = ev.clientX + 14, y = ev.clientY + 14;
+  if (x + r.width > innerWidth - 8) x = ev.clientX - r.width - 14;
+  if (y + r.height > innerHeight - 8) y = ev.clientY - r.height - 14;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+const hideTip = () => { tip.hidden = true; };
+function frame(svg, h, m) {
+  const w = Math.max(300, svg.clientWidth || svg.parentNode.clientWidth || 600);
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  svg.setAttribute("height", h);
+  svg.innerHTML = "";
+  return { w, h, x0: m.l, x1: w - m.r, y0: h - m.b, y1: m.t };
+}
+function gridY(svg, f, ys, ty, fmtv) {
+  for (const v of ys) {
+    el("line", { x1: f.x0, x2: f.x1, y1: ty(v), y2: ty(v), stroke: css("--grid"), "stroke-width": 1 }, svg);
+    el("text", { x: f.x0 - 6, y: ty(v) + 3.5, "text-anchor": "end" }, svg).textContent = fmtv(v);
+  }
+}
+function axisX(svg, f, xs, tx, fmtv, title) {
+  el("line", { x1: f.x0, x2: f.x1, y1: f.y0, y2: f.y0, stroke: css("--muted"), "stroke-width": 1 }, svg);
+  for (const v of xs) el("text", { x: tx(v), y: f.y0 + 15, "text-anchor": "middle" }, svg).textContent = fmtv(v);
+  if (title) el("text", { x: (f.x0 + f.x1) / 2, y: f.y0 + 32, "text-anchor": "middle", class: "axis-title" }, svg).textContent = title;
+}
+const yTitle = (svg, f, text) => el("text", { x: f.x0, y: f.y1 - 8, class: "axis-title" }, svg).textContent = text;
+
+// ------------------------------------------------------------------ data helpers
+const N = D.years.length;
+const seasonRain = D.rain.map(r => r.reduce((a, b) => a + b, 0));
+const policyFor = (name, fold) => {
+  if (name === "rain-fed") return TW.makePolicy("rain-fed", {}, M);
+  if (D.baselines[name]) return TW.makePolicy(name, D.baselines[name][fold].params, M);
+  return TW.makePolicy("ppo", null, M, D.models[name][fold]);
+};
+const FAMILY_LABEL = { "rain-fed": "Rain-fed", "calendar": "Fixed calendar", "threshold": "Threshold",
+  "threshold+forecast": "Threshold + forecast", "stage threshold": "Stage threshold", "ET controller": "ET controller" };
+const AGENT_LABEL = { tabular_k10: "Tabular Q (κ=10)", ppo_k2: "PPO, κ=2", ppo_k5: "PPO, κ=5", ppo_k6: "PPO, κ=6",
+  ppo_k7: "PPO, κ=7", ppo_k8: "PPO, κ=8", ppo_k10: "PPO, κ=10",
+  ppo_k20: "PPO, κ=20", cvar_f80: "CVaR-PPO, floor 0.80", cvar_f90: "CVaR-PPO, floor 0.90", cvar_f95: "CVaR-PPO, floor 0.95" };
+const describe = p => Object.entries(p).map(([k, v]) => `${k.replace("trigger_", "").replace("_", " ")} ${v}`).join(", ");
+
+// ------------------------------------------------------------------ verdict
+const H2H = (list, agent, metric) => list.find(r => r.agent === agent && r.metric === metric);
+(function verdict() {
+  $("#meta-station").textContent = `${D.station.name} · GHCN ${D.station.station} · ${D.years[0]}–${D.years[N - 1]} (${N} complete seasons)`;
+  const A = D.frontier.agents, ag = A[D.demo_agent];
+  const vb = H2H(D.headtohead.vs_baselines, D.demo_agent, "cvar5_yield");
+  const vr = H2H(D.headtohead.vs_risk_neutral, D.demo_agent, "cvar5_yield");
+  const signed = v => `${v >= 0 ? "−" : "+"}${fmt(Math.abs(v))} mm`;
+  const cells = [
+    [`${fmt(ag.water)} mm`, `Mean irrigation of the CVaR-constrained agent (floor ${ag.config.floor}) on held-out years, ± ${fmt(ag.water_seed_sd)} mm across 5 seeds. Its worst-5% yield: ${fmt(ag.cvar5_yield, 3)}.`],
+    [signed(vb.saving_mean), `Water versus the best tuned rules at the same worst-5% yield (± ${fmt(vb.saving_sd, 1)} mm; less water in ${vb.n_beat} of ${vb.n} seeds).`],
+    [signed(vr.saving_mean), `Water versus an unconstrained agent with the crop value tuned instead (± ${fmt(vr.saving_sd, 1)} mm). The constraint picks a point on the same frontier; it does not move the frontier.`],
+  ];
+  $("#verdict").innerHTML = cells.map(([b, c]) => `<div><span class="big">${b}</span><span class="cap">${c}</span></div>`).join("");
+})();
+
+// ------------------------------------------------------------------ season race
+const LANES = [
+  { key: "rain-fed", label: "Rain-fed", color: "--s0" },
+  { key: "ET controller", label: "ET controller", color: "--s3" },
+  { key: "stage threshold", label: "Stage threshold", color: "--s2" },
+  { key: D.demo_agent, label: "CVaR-PPO agent", color: "--s1" },
+];
+const race = { year: 0, day: M.T - 1, runs: [], playing: false, timer: null };
+(function setupRace() {
+  const sel = $("#year");
+  D.years.forEach((y, i) => { const o = document.createElement("option"); o.value = i; o.textContent = `${y} · ${fmt(seasonRain[i])} mm rain`; sel.appendChild(o); });
+  const order = [...Array(N).keys()].sort((a, b) => seasonRain[a] - seasonRain[b]);
+  const rf = D.reference["rain-fed"].yield;
+  const worstRF = [...Array(N).keys()].sort((a, b) => rf[a] - rf[b])[0];
+  const picks = [["Driest", order[0]], ["Dry", order[Math.floor(N * 0.1)]], ["Median", order[Math.floor(N / 2)]], ["Wettest", order[N - 1]]];
+  const chips = $("#year-chips");
+  for (const [lab, i] of picks) {
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.dataset.i = i;
+    b.textContent = `${lab} · ${D.years[i]}`;
+    b.addEventListener("click", () => loadYear(i, true));
+    chips.appendChild(b);
+  }
+  sel.addEventListener("change", () => loadYear(+sel.value, true));
+  $("#day").addEventListener("input", e => { stop(); race.day = +e.target.value; drawRace(); });
+  $("#play").addEventListener("click", () => race.playing ? stop() : play());
+  loadYear(order[0], false);
+})();
+function loadYear(i, autoplay) {
+  race.year = i;
+  $("#year").value = i;
+  document.querySelectorAll("#year-chips .chip").forEach(c => c.setAttribute("aria-pressed", String(+c.dataset.i === i)));
+  const fold = D.fold_of[i];
+  race.runs = LANES.map(l => TW.runSeason(M, D.rain[i], D.et0[i], D.forecast[i], policyFor(l.key, fold)));
+  $("#race-note").textContent = `${D.years[i]} belongs to cross-validation fold ${fold + 1} of 4: every controller shown was tuned or trained on the other three folds. Moisture is plant-available water in the root zone (0–${M.taw} mm); the crop starts to stress below ${(1 - M.p) * M.taw} mm.`;
+  stop();
+  race.day = autoplay ? 0 : M.T - 1;
+  drawRace();
+  if (autoplay) play();
+}
+function play() {
+  if (race.day >= M.T - 1) race.day = 0;
+  race.playing = true; $("#play").textContent = "Pause";
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) { race.day = M.T - 1; drawRace(); stop(); return; }
+  const tick = () => {
+    if (!race.playing) return;
+    race.day = Math.min(M.T - 1, race.day + 1);
+    drawRace();
+    if (race.day >= M.T - 1) { stop(); return; }
+    race.timer = setTimeout(tick, 1000 / +$("#speed").value);
+  };
+  tick();
+}
+function stop() { race.playing = false; clearTimeout(race.timer); $("#play").textContent = "Play"; }
+function seasonDate(d) {
+  const t = new Date(Date.UTC(2001, 2, 1 + d));
+  return t.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+}
+function drawRace() {
+  const i = race.year, d = race.day;
+  $("#day").value = d;
+  $("#daylabel").textContent = `Day ${d + 1} of ${M.T} · ${seasonDate(d)} · ${D.crop.stage_names[M.stage[d]]}`;
+  // weather strip
+  const svg = $("#weather-chart");
+  const f = frame(svg, 150, { l: 44, r: 10, t: 22, b: 40 });
+  const rain = D.rain[i], maxR = Math.max(30, ...rain);
+  const tx = scale(0, M.T, f.x0, f.x1), ty = scale(0, maxR, f.y0 - 18, f.y1);
+  gridY(svg, { ...f, y0: f.y0 - 18 }, ticks(0, maxR, 3), ty, v => v);
+  yTitle(svg, f, "Rain, mm/day");
+  const bw = Math.max(1, (f.x1 - f.x0) / M.T - 1.5);
+  rain.forEach((r, k) => {
+    if (r <= 0) return;
+    el("rect", { x: tx(k) + 0.75, y: ty(r), width: bw, height: Math.max(0.5, ty(0) - ty(r)), rx: 1,
+      fill: css("--rain"), opacity: k <= d ? 1 : 0.35 }, svg);
+  });
+  // stage band
+  D.crop.stage_starts.forEach((s, k) => {
+    const e = k + 1 < D.crop.stage_starts.length ? D.crop.stage_starts[k + 1] : M.T;
+    el("rect", { x: tx(s), y: f.y0 - 12, width: tx(e) - tx(s) - 2, height: 10, rx: 2,
+      fill: k === 2 || k === 3 ? css("--ink-2") : css("--g3") }, svg);
+    if (tx(e) - tx(s) > 70) el("text", { x: tx(s) + 2, y: f.y0 + 12, class: "lbl" }, svg).textContent = D.crop.stage_names[k] + (k === 2 || k === 3 ? " (sensitive)" : "");
+  });
+  el("line", { x1: tx(d + 0.5), x2: tx(d + 0.5), y1: f.y1 - 4, y2: f.y0, stroke: css("--ink"), "stroke-width": 1.5 }, svg);
+  const hit = el("rect", { x: f.x0, y: f.y1, width: f.x1 - f.x0, height: f.y0 - f.y1, fill: "transparent" }, svg);
+  hit.addEventListener("mousemove", ev => {
+    const k = Math.max(0, Math.min(M.T - 1, Math.floor((ev.offsetX * (f.w / svg.clientWidth) - f.x0) / (f.x1 - f.x0) * M.T)));
+    showTip(`<b>${seasonDate(k)}</b> · day ${k + 1}<br>Rain ${fmt(rain[k], 1)} mm · ET0 ${fmt(D.et0[i][k], 1)} mm<br>3-day forecast ${fmt(D.forecast[i][k], 1)} mm`, ev);
+  });
+  hit.addEventListener("mouseleave", hideTip);
+
+  // moisture chart
+  const ms = $("#moisture-chart");
+  const g = frame(ms, 220, { l: 44, r: 10, t: 22, b: 34 });
+  const mx = scale(0, M.T, g.x0, g.x1), my = scale(0, M.taw, g.y0, g.y1);
+  const sp = (1 - M.p) * M.taw;
+  el("rect", { x: g.x0, y: my(sp), width: g.x1 - g.x0, height: my(0) - my(sp), fill: css("--stress"), opacity: 0.7 }, ms);
+  el("text", { x: g.x1 - 4, y: my(sp) + 13, "text-anchor": "end", class: "lbl" }, ms).textContent = "crop under stress";
+  gridY(ms, g, [0, 25, 50, 75, 100], my, v => v);
+  axisX(ms, g, [0, 20, 40, 60, 80, 100, 120], mx, v => v, "");
+  el("text", { x: g.x1, y: g.y0 + 28, "text-anchor": "end", class: "axis-title" }, ms).textContent = "Day of season";
+  yTitle(ms, g, "Soil water available to the crop, mm");
+  race.runs.forEach((run, k) => {
+    const pts = run.traj.moisture.slice(0, d + 1).map((v, j) => `${fmt(mx(j + 1), 1)},${fmt(my(v), 1)}`);
+    pts.unshift(`${fmt(mx(0), 1)},${fmt(my(M.s0), 1)}`);
+    el("polyline", { points: pts.join(" "), fill: "none", stroke: css(LANES[k].color), "stroke-width": 2, "stroke-linejoin": "round" }, ms);
+    const v = run.traj.moisture[d];
+    el("circle", { cx: mx(d + 1), cy: my(v), r: 4, fill: css(LANES[k].color), stroke: css("--surface"), "stroke-width": 2 }, ms);
+  });
+  const mh = el("rect", { x: g.x0, y: g.y1, width: g.x1 - g.x0, height: g.y0 - g.y1, fill: "transparent" }, ms);
+  mh.addEventListener("mousemove", ev => {
+    const k = Math.max(0, Math.min(d, Math.floor((ev.offsetX * (g.w / ms.clientWidth) - g.x0) / (g.x1 - g.x0) * M.T)));
+    showTip(`<b>${seasonDate(k)}</b><br>` + LANES.map((l, j) => `${l.label}: ${fmt(race.runs[j].traj.moisture[k])} mm${race.runs[j].traj.irr[k] ? ` · +${race.runs[j].traj.irr[k]} mm irrigated` : ""}`).join("<br>"), ev);
+  });
+  mh.addEventListener("mouseleave", hideTip);
+
+  // lanes
+  const fold = D.fold_of[i];
+  $("#lanes").innerHTML = LANES.map((l, k) => {
+    const run = race.runs[k], tr = run.traj, m = tr.moisture[d];
+    const desc = l.key === "rain-fed" ? "never irrigates" : D.baselines[l.key] ? describe(D.baselines[l.key][fold].params)
+      : `neural policy trained to keep the worst 5% of seasons ≥ ${D.frontier.agents[D.demo_agent].config.floor}`;
+    const final = d >= M.T - 1;
+    return `<div class="lane"><div class="name"><span class="sw" style="background:var(${l.color})"></span>${l.label}</div>
+      <div class="rule-desc">${desc}</div>
+      <div class="gauge" title="Soil water ${fmt(m)} mm"><span style="width:${m / M.taw * 100}%;background:var(${l.color})"></span><i style="left:${(1 - M.p) * 100}%"></i></div>
+      <div class="stats"><div><span class="k">Water used</span><span class="v">${fmt(tr.water[d])}</span><span class="note">mm</span></div>
+      <div><span class="k">${final ? "Final yield" : "Yield so far"}</span><span class="v">${fmt(tr.yieldSoFar[d] * 100)}%</span><span class="note">of full</span></div></div></div>`;
+  }).join("");
+}
+
+// ------------------------------------------------------------------ frontier
+let frontierMetric = "cvar5_yield", userPoint = null;
+const FAM_STYLE = { "threshold": { c: "--g2", dash: "", m: "circle" }, "threshold+forecast": { c: "--g1", dash: "5 3", m: "tri" },
+  "stage threshold": { c: "--s2", dash: "", m: "diamond" }, "ET controller": { c: "--s3", dash: "", m: "tri-down" },
+  "calendar": { c: "--g3", dash: "2 3", m: "square" } };
+function marker(svg, kind, x, y, r, fill, stroke) {
+  const a = { fill, stroke, "stroke-width": 1.5 };
+  if (kind === "circle") return el("circle", { cx: x, cy: y, r, ...a }, svg);
+  if (kind === "square") return el("rect", { x: x - r, y: y - r, width: 2 * r, height: 2 * r, ...a }, svg);
+  if (kind === "diamond") return el("path", { d: `M${x},${y - r * 1.3}L${x + r * 1.3},${y}L${x},${y + r * 1.3}L${x - r * 1.3},${y}Z`, ...a }, svg);
+  if (kind === "tri") return el("path", { d: `M${x},${y - r * 1.3}L${x + r * 1.2},${y + r}L${x - r * 1.2},${y + r}Z`, ...a }, svg);
+  if (kind === "tri-down") return el("path", { d: `M${x},${y + r * 1.3}L${x + r * 1.2},${y - r}L${x - r * 1.2},${y - r}Z`, ...a }, svg);
+  if (kind === "star") {
+    let d = "";
+    for (let k = 0; k < 10; k++) { const rr = k % 2 ? r * 0.5 : r * 1.4, t = Math.PI / 5 * k - Math.PI / 2; d += `${k ? "L" : "M"}${x + rr * Math.cos(t)},${y + rr * Math.sin(t)}`; }
+    return el("path", { d: d + "Z", ...a }, svg);
+  }
+}
+function drawFrontier() {
+  const svg = $("#frontier-chart");
+  const f = frame(svg, 380, { l: 48, r: 18, t: 26, b: 46 });
+  const met = frontierMetric;
+  const ylo = met === "cvar5_yield" ? 0.4 : 0.6;
+  const allW = Object.values(D.frontier.agents).map(a => a.water - a.water_seed_sd).concat(userPoint ? [userPoint.water] : []);
+  const xlo = Math.min(110, Math.floor((Math.min(...allW) - 10) / 20) * 20), xhi = 300;
+  const tx = scale(xlo, xhi, f.x0, f.x1), ty = scale(ylo, 1.0, f.y0, f.y1);
+  const clampX = x => Math.max(f.x0, Math.min(f.x1, x));
+  gridY(svg, f, ticks(ylo, 1, 5), ty, v => v.toFixed(1));
+  axisX(svg, f, ticks(xlo, xhi, 6), tx, v => v, "Mean irrigation per season, mm (held-out years)");
+  yTitle(svg, f, met === "cvar5_yield" ? "Yield in the worst 5% of seasons" : "Mean yield");
+  const items = [];
+  for (const [fam, st] of Object.entries(FAM_STYLE)) {
+    const rows = (D.frontier.baselines[fam] || []).filter(r => r.water <= 300 && r[met] >= ylo).sort((a, b) => a.water - b.water || a[met] - b[met]);
+    const uniq = rows.filter((r, k) => !k || r.water !== rows[k - 1].water || r[met] !== rows[k - 1][met]);
+    if (!uniq.length) continue;
+    el("polyline", { points: uniq.map(r => `${tx(r.water)},${ty(r[met])}`).join(" "), fill: "none", stroke: css(st.c), "stroke-width": 1.5, "stroke-dasharray": st.dash }, svg);
+    for (const r of uniq) {
+      const m = marker(svg, st.m, tx(r.water), ty(r[met]), 3.5, css(st.c), css("--surface"));
+      items.push([m, `<b>${FAMILY_LABEL[fam]}</b>, tuned for floor ${r.floor}<br>${fmt(r.water)} mm · mean ${fmt(r.mean_yield, 3)} · CVaR ${fmt(r.cvar5_yield, 3)}`]);
+    }
+  }
+  for (const [pre, c] of [["ppo_k", "--g1"], ["cvar_f", "--s1"]]) {
+    const ps = Object.entries(D.frontier.agents).filter(([n]) => n.startsWith(pre)).map(([, a]) => a)
+      .filter(a => a.water <= xhi && a[met] >= ylo).sort((a, b) => a.water - b.water);
+    if (ps.length > 1) el("polyline", { points: ps.map(a => `${tx(a.water)},${ty(a[met])}`).join(" "), fill: "none",
+      stroke: css(c), "stroke-width": 1, opacity: 0.55 }, svg);
+  }
+  const agentStyle = n => n.startsWith("cvar") ? { c: "--s1", fill: true } : n.startsWith("ppo") ? { c: "--g1", fill: false } : { c: "--g2", fill: false, m: "square" };
+  for (const [n, a] of Object.entries(D.frontier.agents)) {
+    if (a.water > 300 || a[met] < ylo) continue;
+    const st = agentStyle(n), x = tx(a.water), y = ty(a[met]);
+    const ex = a.water_seed_sd, ey = a[met + "_seed_sd"];
+    el("line", { x1: clampX(tx(a.water - ex)), x2: clampX(tx(a.water + ex)), y1: y, y2: y, stroke: css(st.c), "stroke-width": 1.2 }, svg);
+    el("line", { x1: x, x2: x, y1: ty(Math.max(ylo, a[met] - ey)), y2: ty(Math.min(1, a[met] + ey)), stroke: css(st.c), "stroke-width": 1.2 }, svg);
+    const m = marker(svg, st.m || "circle", x, y, 5.5, st.fill ? css(st.c) : css("--surface"), st.fill ? css("--surface") : css(st.c));
+    if (!st.fill) m.setAttribute("stroke-width", 2);
+    const short = n.startsWith("cvar") ? `≥${a.config.floor}` : n.startsWith("ppo") ? `κ=${a.config.kappa}` : "tab-Q";
+    const isC = n.startsWith("cvar");
+    el("text", { x: isC ? x + 9 : x - 8, y: isC ? y + 15 : y - 8, "text-anchor": isC ? "start" : "end", class: "lbl" }, svg).textContent = short;
+    items.push([m, `<b>${AGENT_LABEL[n]}</b><br>${fmt(a.water)} ± ${fmt(a.water_seed_sd)} mm<br>mean ${fmt(a.mean_yield, 3)} · CVaR ${fmt(a.cvar5_yield, 3)} ± ${fmt(a.cvar5_yield_seed_sd, 3)}<br>worst ${fmt(a.worst_yield, 3)} · ${a.seeds} seeds`]);
+  }
+  if (userPoint && userPoint[met] >= ylo) {
+    const m = marker(svg, "star", clampX(tx(userPoint.water)), ty(userPoint[met]), 6, css("--ink"), css("--surface"));
+    items.push([m, `<b>Your rule</b> (in-sample, all 74 years)<br>${fmt(userPoint.water)} mm · mean ${fmt(userPoint.mean_yield, 3)} · CVaR ${fmt(userPoint.cvar5_yield, 3)}`]);
+  }
+  for (const [m, html] of items) {
+    m.style.cursor = "default";
+    m.addEventListener("mousemove", ev => showTip(html, ev));
+    m.addEventListener("mouseleave", hideTip);
+  }
+}
+(function setupFrontier() {
+  document.querySelectorAll("#frontier .chip").forEach(b => b.addEventListener("click", () => {
+    frontierMetric = b.dataset.metric;
+    document.querySelectorAll("#frontier .chip").forEach(c => c.setAttribute("aria-pressed", String(c === b)));
+    drawFrontier();
+  }));
+  const L = [["CVaR-PPO (floors)", "--s1", "filled"], ["PPO, risk-neutral (κ)", "--g1", "ring"], ["Tabular Q", "--g2", "sq"],
+    ["Stage threshold", "--s2", "line"], ["ET controller", "--s3", "line"], ["Threshold + forecast", "--g1", "dash"],
+    ["Threshold", "--g2", "line"], ["Calendar", "--g3", "dash"], ["Your rule", "--ink", "star"]];
+  $("#frontier-legend").innerHTML = L.map(([t, c, k]) => {
+    const sw = k === "filled" ? `<span class="sw" style="background:var(${c});border-radius:50%"></span>`
+      : k === "ring" ? `<span class="sw" style="border:2px solid var(${c});border-radius:50%"></span>`
+      : k === "sq" ? `<span class="sw" style="border:2px solid var(${c});border-radius:2px"></span>`
+      : k === "star" ? `<span style="color:var(${c})">★</span>`
+      : `<span style="width:18px;border-top:2px ${k === "dash" ? "dashed" : "solid"} var(${c})"></span>`;
+    return `<span>${sw}${t}</span>`;
+  }).join("");
+  const rows = Object.entries(D.frontier.agents).map(([n, a]) =>
+    `<tr><td>${AGENT_LABEL[n]}</td><td>${fmt(a.water)} ± ${fmt(a.water_seed_sd)}</td><td>${fmt(a.mean_yield, 3)}</td><td>${fmt(a.cvar5_yield, 3)} ± ${fmt(a.cvar5_yield_seed_sd, 3)}</td><td>${fmt(a.worst_yield, 3)}</td></tr>`);
+  for (const fam of ["stage threshold", "threshold+forecast", "threshold", "ET controller"])
+    for (const r of D.frontier.baselines[fam].filter(r => [0.8, 0.9, 0.95].includes(r.floor)))
+      rows.push(`<tr><td>${FAMILY_LABEL[fam]}, floor ${r.floor}</td><td>${fmt(r.water)}</td><td>${fmt(r.mean_yield, 3)}</td><td>${fmt(r.cvar5_yield, 3)}</td><td>${fmt(r.worst_yield, 3)}</td></tr>`);
+  $("#frontier-table").innerHTML = `<thead><tr><th>Controller (held-out years)</th><th>Water, mm</th><th>Mean yield</th><th>CVaR-5%</th><th>Worst</th></tr></thead><tbody>${rows.join("")}</tbody>`;
+})();
+
+// ------------------------------------------------------------------ sandbox
+const AMOUNTS = [null, 5, 10, 20], SKIPS = [5, 10, 20, 40, null];
+function runRule() {
+  const lo = +$("#r-lo").value, hi = +$("#r-hi").value, amt = AMOUNTS[+$("#r-amt").value], skip = SKIPS[+$("#r-skip").value];
+  $("#r-lo-v").textContent = lo + " mm"; $("#r-hi-v").textContent = hi + " mm"; $("#r-amt-v").textContent = amt + " mm";
+  $("#r-skip-v").textContent = skip === null ? "never" : skip + " mm";
+  const a = M.actions.indexOf(amt);
+  const pol = { reset() {}, act(o) {
+    const trig = (o.stage === 2 || o.stage === 3) ? hi : lo;
+    return (o.moisture < trig && (skip === null || o.forecast < skip)) ? a : 0; } };
+  const water = [], ys = [];
+  for (let i = 0; i < N; i++) { const r = TW.runSeason(M, D.rain[i], D.et0[i], D.forecast[i], pol); water.push(r.water); ys.push(r.yield); }
+  userPoint = TW.summarize(water, ys);
+  $("#rule-tiles").innerHTML = [["Water", fmt(userPoint.water) + " mm"], ["Mean yield", fmt(userPoint.mean_yield, 3)],
+    ["Worst 5%", fmt(userPoint.cvar5_yield, 3)], ["Worst year", fmt(userPoint.worst_yield, 3)]]
+    .map(([k, v]) => `<div><span class="k">${k}</span><span class="v">${v}</span></div>`).join("");
+  drawStrip(ys);
+  drawFrontier();
+}
+function drawStrip(ys) {
+  const svg = $("#strip-chart");
+  const f = frame(svg, 230, { l: 40, r: 12, t: 22, b: 34 });
+  const lo = Math.min(0.5, Math.floor(Math.min(...ys) * 10) / 10);
+  const tx = scale(lo, 1.0, f.x0, f.x1);
+  axisX(svg, f, ticks(lo, 1, 5), tx, v => v.toFixed(1), "Relative yield of each season");
+  const order = [...ys.keys()].sort((a, b) => ys[a] - ys[b]);
+  const tail = new Set(order.slice(0, Math.ceil(0.05 * N)));
+  const bins = {};
+  for (const i of order) {
+    const key = Math.round(tx(ys[i]) / 9);
+    bins[key] = (bins[key] || 0) + 1;
+    const y = f.y0 - 8 - (bins[key] - 1) * 9;
+    const c = el("circle", { cx: tx(ys[i]), cy: Math.max(f.y1, y), r: 4, fill: tail.has(i) ? css("--s2") : css("--s1"), stroke: css("--surface"), "stroke-width": 1.5 }, svg);
+    c.addEventListener("mousemove", ev => showTip(`<b>${D.years[i]}</b> · ${fmt(seasonRain[i])} mm rain<br>yield ${fmt(ys[i], 3)}${tail.has(i) ? " · in the worst 5%" : ""}`, ev));
+    c.addEventListener("mouseleave", hideTip);
+  }
+  el("text", { x: f.x0, y: f.y1 - 6, class: "lbl" }, svg).textContent = "orange: the worst 4 seasons (CVaR-5% tail)";
+}
+["#r-lo", "#r-hi", "#r-amt", "#r-skip"].forEach(s => $(s).addEventListener("input", runRule));
+(function seedRule() {
+  // open on the tuned stage-threshold rule from fold 1 so the first view is a realistic setting
+  const p = D.baselines["stage threshold"][0].params;
+  $("#r-lo").value = p.trigger_tolerant; $("#r-hi").value = p.trigger_sensitive;
+  $("#r-amt").value = AMOUNTS.indexOf(p.amount);
+})();
+
+// ------------------------------------------------------------------ policy map
+const PM_MODELS = Object.keys(D.models);
+(function setupPolicy() {
+  const sel = $("#pm-model");
+  for (const n of PM_MODELS) { const o = document.createElement("option"); o.value = n; o.textContent = AGENT_LABEL[n] + " (fold 1 model)"; sel.appendChild(o); }
+  sel.value = D.demo_agent;
+  ["#pm-model", "#pm-fc", "#pm-dsr"].forEach(s => $(s).addEventListener("input", drawPolicy));
+  const H = ["--h0", "--h1", "--h2", "--h3"];
+  $("#policy-legend").innerHTML = M.actions.map((a, k) => `<span><span class="sw" style="background:var(${H[k]});border:1px solid var(--rule)"></span>${a} mm</span>`).join("")
+    + `<span><span style="width:18px;border-top:2px dashed var(--s2)"></span>Tuned stage-threshold triggers</span>`;
+})();
+function drawPolicy() {
+  const net = D.models[$("#pm-model").value][0];
+  const fc = +$("#pm-fc").value, dsr = +$("#pm-dsr").value;
+  $("#pm-fc-v").textContent = fc + " mm"; $("#pm-dsr-v").textContent = dsr + " d";
+  const svg = $("#policy-chart");
+  const f = frame(svg, 300, { l: 44, r: 12, t: 24, b: 40 });
+  const tx = scale(0, M.T, f.x0, f.x1), ty = scale(0, M.taw, f.y0, f.y1);
+  const meanEt0 = D.et0.flat().reduce((a, b) => a + b, 0) / (N * M.T);
+  const H = ["--h0", "--h1", "--h2", "--h3"].map(css);
+  const step = 2, cw = (f.x1 - f.x0) / M.T + 0.6, ch = (ty(0) - ty(step)) + 0.6;
+  const counts = [0, 0, 0, 0];
+  for (let d = 0; d < M.T; d++) {
+    for (let m = 0; m < M.taw; m += step) {
+      const o = { day: d, stage: M.stage[d], kc: M.kc[d], moisture: m + step / 2, forecast: fc, dsr,
+        rain_y: dsr === 0 ? 5 : 0, et0_y: meanEt0, etc_y: meanEt0 * M.kc[Math.max(0, d - 1)] };
+      const a = TW.argmax(TW.forward(net, TW.features(o, M)));
+      counts[a]++;
+      el("rect", { x: tx(d), y: ty(m + step), width: cw, height: ch, fill: H[a] }, svg);
+    }
+  }
+  const sp = (1 - M.p) * M.taw;
+  el("line", { x1: f.x0, x2: f.x1, y1: ty(sp), y2: ty(sp), stroke: css("--ink"), "stroke-width": 1, "stroke-dasharray": "2 3" }, svg);
+  el("text", { x: f.x1 - 4, y: ty(sp) - 5, "text-anchor": "end", class: "lbl" }, svg).textContent = "stress begins";
+  const p = D.baselines["stage threshold"][0].params;
+  const pts = [];
+  for (let d = 0; d <= M.T; d++) { const s = M.stage[Math.min(d, M.T - 1)]; pts.push(`${tx(d)},${ty(s === 2 || s === 3 ? p.trigger_sensitive : p.trigger_tolerant)}`); }
+  el("polyline", { points: pts.join(" "), fill: "none", stroke: css("--s2"), "stroke-width": 2, "stroke-dasharray": "6 4" }, svg);
+  gridY(svg, { ...f, x0: f.x0 }, [], ty, v => v);
+  for (const v of [0, 25, 50, 75, 100]) el("text", { x: f.x0 - 6, y: ty(v) + 3.5, "text-anchor": "end" }, svg).textContent = v;
+  axisX(svg, f, [0, 20, 40, 60, 80, 100, 120], tx, v => v, "Day of season");
+  yTitle(svg, f, "Soil water, mm");
+  D.crop.stage_starts.forEach((s, k) => { if (k) el("line", { x1: tx(s), x2: tx(s), y1: f.y1, y2: f.y0, stroke: css("--surface"), "stroke-width": 1.5 }, svg); });
+  const hit = el("rect", { x: f.x0, y: f.y1, width: f.x1 - f.x0, height: f.y0 - f.y1, fill: "transparent" }, svg);
+  hit.addEventListener("mousemove", ev => {
+    const sx = f.w / svg.clientWidth;
+    const d = Math.max(0, Math.min(M.T - 1, Math.floor((ev.offsetX * sx - f.x0) / (f.x1 - f.x0) * M.T)));
+    const m = Math.max(0, Math.min(M.taw, (f.y0 - ev.offsetY * sx) / (f.y0 - f.y1) * M.taw));
+    const o = { day: d, stage: M.stage[d], kc: M.kc[d], moisture: m, forecast: fc, dsr, rain_y: dsr === 0 ? 5 : 0, et0_y: meanEt0, etc_y: meanEt0 * M.kc[Math.max(0, d - 1)] };
+    const logits = TW.forward(net, TW.features(o, M));
+    const mx = Math.max(...logits), e = logits.map(v => Math.exp(v - mx)), s = e.reduce((a, b) => a + b, 0);
+    showTip(`<b>Day ${d + 1}</b> (${D.crop.stage_names[M.stage[d]]}) · soil water ${fmt(m)} mm<br>` + M.actions.map((a, k) => `${a} mm: ${fmt(e[k] / s * 100)}%`).join(" · "), ev);
+  });
+  hit.addEventListener("mouseleave", hideTip);
+}
+
+// ------------------------------------------------------------------ weather record
+function drawRain() {
+  const svg = $("#rain-chart");
+  const f = frame(svg, 220, { l: 44, r: 10, t: 22, b: 36 });
+  const maxR = Math.max(...seasonRain);
+  const tx = scale(0, N, f.x0, f.x1), ty = scale(0, maxR * 1.05, f.y0, f.y1);
+  gridY(svg, f, ticks(0, maxR, 4), ty, v => v);
+  yTitle(svg, f, "March–June rain, mm");
+  const bw = Math.max(2, (f.x1 - f.x0) / N - 2);
+  const rf = D.reference["rain-fed"].yield;
+  D.years.forEach((y, i) => {
+    const b = el("rect", { x: tx(i) + 1, y: ty(seasonRain[i]), width: bw, height: ty(0) - ty(seasonRain[i]), rx: 2,
+      fill: i === race.year ? css("--ink") : css("--rain"), style: "cursor:pointer" }, svg);
+    b.addEventListener("mousemove", ev => showTip(`<b>${y}</b><br>Rain ${fmt(seasonRain[i])} mm · ET0 ${fmt(D.et0[i].reduce((a, c) => a + c, 0))} mm<br>Rain-fed yield ${fmt(rf[i], 2)}`, ev));
+    b.addEventListener("mouseleave", hideTip);
+    b.addEventListener("click", () => { loadYear(i, true); drawRain(); $("#race").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); });
+  });
+  const tk = D.years.map((y, i) => [y, i]).filter(([y], k) => k % 8 === 0);
+  el("line", { x1: f.x0, x2: f.x1, y1: f.y0, y2: f.y0, stroke: css("--muted") }, svg);
+  for (const [y, i] of tk) el("text", { x: tx(i) + bw / 2, y: f.y0 + 15, "text-anchor": "middle" }, svg).textContent = y;
+  const v = D.diagnostics.variability;
+  $("#weather-text").textContent = `Spring rain at Belle Glade ranged from ${fmt(Math.min(...seasonRain))} to ${fmt(Math.max(...seasonRain))} mm across these ${N} seasons (coefficient of variation ${fmt(v.noaa.rain.cv, 2)}), and season evaporative demand varied three times as much as in the prototype's synthetic generator (${fmt(v.noaa.et0.cv, 3)} vs ${fmt(v.synthetic_iid.et0.cv, 3)}). On a constant-rate irrigation sweep, the worst-5% yield sits up to ${fmt(D.diagnostics.max_tail_gap.noaa_fao33, 2)} below the average season on this record, against ${fmt(D.diagnostics.max_tail_gap.iid_linear, 2)} on i.i.d. synthetic weather. That gap is the tail a reliability constraint can act on.`;
+}
+
+// ------------------------------------------------------------------ learning curves
+function drawCurves() {
+  const names = ["ppo_k7", "cvar_f90", "cvar_f95"].filter(n => D.curves[n]);
+  const col = { ppo_k7: "--g1", cvar_f90: "--s1", cvar_f95: "--s3" };
+  const panels = [["water", "Water per season, mm"], ["cvar5_yield", "Batch worst-5% yield"], ["lambda", "Multiplier λ"], ["mean_yield", "Batch mean yield"]];
+  $("#curves").innerHTML = panels.map((_, k) => `<svg class="chart" id="cv${k}" role="img" aria-label="${panels[k][1]}"></svg>`).join("");
+  panels.forEach(([key, title], k) => {
+    const svg = $("#cv" + k);
+    const f = frame(svg, 190, { l: 44, r: 10, t: 24, b: 36 });
+    let lo = Infinity, hi = -Infinity;
+    for (const n of names) D.curves[n][key].forEach((v, j) => { const s = D.curves[n][key + "_sd"][j]; lo = Math.min(lo, v - s); hi = Math.max(hi, v + s); });
+    if (key !== "lambda") lo = Math.max(0, lo); else lo = 0;
+    if (key.includes("yield")) hi = Math.min(1, hi);
+    if (key === "water") hi = Math.min(hi, 500);
+    const xs = D.curves[names[0]].x, tx = scale(0, xs[xs.length - 1], f.x0, f.x1), ty = scale(lo, hi, f.y0, f.y1);
+    gridY(svg, f, ticks(lo, hi, 3), ty, v => +v.toFixed(2));
+    axisX(svg, f, ticks(0, xs[xs.length - 1], 4), tx, v => v >= 1000 ? (v / 1000) + "k" : v, "Training seasons");
+    yTitle(svg, f, title);
+    for (const n of names) {
+      const c = D.curves[n], m = c[key], s = c[key + "_sd"];
+      const up = m.map((v, j) => `${tx(c.x[j])},${ty(Math.min(hi, v + s[j]))}`), dn = m.map((v, j) => `${tx(c.x[j])},${ty(Math.max(lo, v - s[j]))}`).reverse();
+      el("polygon", { points: up.concat(dn).join(" "), fill: css(col[n]), opacity: 0.12 }, svg);
+      el("polyline", { points: m.map((v, j) => `${tx(c.x[j])},${ty(Math.min(hi, v))}`).join(" "), fill: "none", stroke: css(col[n]), "stroke-width": 1.75 }, svg);
+    }
+  });
+  $("#curves-legend").innerHTML = names.map(n => `<span><span style="width:18px;border-top:2px solid var(${col[n]})"></span>${AGENT_LABEL[n]}</span>`).join("");
+}
+
+// ------------------------------------------------------------------ findings
+function drawFindings() {
+  const A = D.frontier.agents, vb = D.headtohead.vs_baselines, vr = D.headtohead.vs_risk_neutral;
+  const sv = (list, n) => { const r = H2H(list, n, "cvar5_yield"); return r ? `${r.saving_mean >= 0 ? "" : "−"}${fmt(Math.abs(r.saving_mean), 1)} ± ${fmt(r.saving_sd, 1)} mm` : "–"; };
+  const floors = Object.entries(A).filter(([n]) => n.startsWith("cvar")).sort((a, b) => a[1].config.floor - b[1].config.floor).map(([, a]) => `${fmt(a.cvar5_yield, 3)} for floor ${a.config.floor}`).join(", ");
+  const tab = A.tabular_k10, rob = D.robustness;
+  let robText = "";
+  if (rob) {
+    const cs = rob.climate_sweep, first = r => r[0], last = r => r[r.length - 1];
+    const ag = cs["CVaR-PPO 0.90"], st = cs["stage threshold 0.90"];
+    if (ag && st) robText = `<strong>Drier climates cost every controller more water, and the agent keeps its tail.</strong> On 600 synthetic seasons per level from a generator fitted to Belle Glade, cutting rain by 40% raised the floor-0.90 agent's water from ${fmt(ag[4].water)} to ${fmt(first(ag).water)} mm with its worst-5% yield between ${fmt(Math.min(...ag.map(r => r.cvar5_yield)), 2)} and ${fmt(Math.max(...ag.map(r => r.cvar5_yield)), 2)}; the tuned stage-threshold rule went from ${fmt(st[4].water)} to ${fmt(first(st).water)} mm at ${fmt(first(st).cvar5_yield, 2)}–${fmt(last(st).cvar5_yield, 2)}. No policy was trained or tuned on these seasons.`;
+  }
+  const items = [
+    ["Main result", `<strong>Learned policies beat every tuned rule at equal reliability, out of sample.</strong> At the same held-out worst-5% yield, PPO needs less water than the envelope of all tuned rule families in every seed: ${sv(vb, "ppo_k10")} at κ = 10 (worst-5% yield ${fmt(A.ppo_k10.cvar5_yield, 3)}), ${sv(vb, "cvar_f90")} for the floor-0.90 agent, and ${sv(vb, "cvar_f80")} for the floor-0.80 agent. The rules being beaten include ones that see the same stage sensitivity and rain forecast as the agent.`],
+    ["Research question", `<strong>The CVaR constraint works as a control but does not add efficiency.</strong> With water priced high (κ = 2) and no constraint, the worst-5% yield collapses to ${fmt(A.ppo_k2.cvar5_yield, 2)}; adding a floor makes λ rise until the tail is protected, and the floor sets where the agent lands. But an unconstrained agent with a different crop value reaches the same points: versus that frontier the constrained agents save ${sv(vr, "cvar_f80")} (floor 0.80), ${sv(vr, "cvar_f90")} (0.90) and ${sv(vr, "cvar_f95")} (0.95). A likely reason is that drought shows up in the state: a policy that watches soil water already irrigates more in dry years, so protecting the average season largely protects the worst ones too. The constraint's practical value is that the grower states a yield floor directly instead of a crop price.`],
+    ["Gap", `<strong>Held-out tails fall a little short of the training floor:</strong> ${floors}. The floor is enforced during training, on batches drawn from about 55 seasons under the stochastic training policy; scored on unseen years with the greedy policy, the tail comes out slightly lower. A deployed controller would need a safety margin on the floor.`],
+    ["Negative", tab ? `<strong>Tabular Q-learning does not match a tuned rule.</strong> It used ${fmt(tab.water)} mm for a worst-5% yield of ${fmt(tab.cvar5_yield, 2)} ± ${fmt(tab.cvar5_yield_seed_sd, 2)}, ${sv(vb, "tabular_k10").replace(/^−/, "")} more water than the rule envelope at that tail. The discretised table overfits the training years; the neural policy generalises far better.` : ""],
+    ["Robustness", robText],
+    ["Weather", `<strong>Real weather is what creates the tail.</strong> The prototype drew each day's weather independently, so season totals barely varied and there were no drought years. On the NOAA record the gap between average and worst-5% yield roughly doubles.`],
+    ["Limits", `<strong>Absolute water numbers are likely high.</strong> Hargreaves ET0 comes out at ${fmt(D.diagnostics.pan_check.overall_ratio, 2)}× the station's own Class-A pan evaporation, where reference ET is normally 0.65–0.85× pan. All controllers share the same ET0, so comparisons between them hold, but the millimetres are not field recommendations. The soil is a single 100 mm bucket, the forecast is synthetic noise around the observed rain, and the worst-5% yield of 74 seasons is the mean of just 4.`],
+  ];
+  $("#findings-list").innerHTML = items.filter(i => i[1]).map(([t, h]) => `<div class="finding"><span class="tag">${t}</span><p>${h}</p></div>`).join("");
+}
+
+function drawAll() { drawRace(); drawFrontier(); drawPolicy(); drawRain(); drawCurves(); }
+runRule(); drawPolicy(); drawRain(); drawCurves(); drawFindings();
+let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { drawAll(); runRule(); }, 120); });
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { drawAll(); runRule(); });
+new MutationObserver(() => { drawAll(); runRule(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+</script>

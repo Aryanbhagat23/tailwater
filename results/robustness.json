@@ -1,0 +1,1452 @@
+{
+ "wetness": [
+  0.6,
+  0.7,
+  0.8,
+  0.9,
+  1.0,
+  1.1,
+  1.2
+ ],
+ "noise": [
+  0.0,
+  0.25,
+  0.5,
+  1.0,
+  2.0
+ ],
+ "climate_sweep": {
+  "CVaR-PPO 0.90": [
+   {
+    "wetness": 0.6,
+    "season_rain": 276.233952,
+    "water": 261.313333,
+    "mean_yield": 0.932108,
+    "cvar5_yield": 0.858525,
+    "worst_yield": 0.833028,
+    "water_sd": 6.833396,
+    "mean_yield_sd": 0.013631,
+    "cvar5_yield_sd": 0.017168,
+    "worst_yield_sd": 0.017333
+   },
+   {
+    "wetness": 0.7,
+    "season_rain": 323.278792,
+    "water": 233.341667,
+    "mean_yield": 0.942577,
+    "cvar5_yield": 0.865889,
+    "worst_yield": 0.837936,
+    "water_sd": 6.10897,
+    "mean_yield_sd": 0.011972,
+    "cvar5_yield_sd": 0.015957,
+    "worst_yield_sd": 0.017333
+   },
+   {
+    "wetness": 0.8,
+    "season_rain": 369.880461,
+    "water": 209.261667,
+    "mean_yield": 0.951271,
+    "cvar5_yield": 0.872409,
+    "worst_yield": 0.839335,
+    "water_sd": 5.557067,
+    "mean_yield_sd": 0.010479,
+    "cvar5_yield_sd": 0.015726,
+    "worst_yield_sd": 0.018869
+   },
+   {
+    "wetness": 0.9,
+    "season_rain": 416.036883,
+    "water": 188.263333,
+    "mean_yield": 0.957546,
+    "cvar5_yield": 0.879778,
+    "worst_yield": 0.843873,
+    "water_sd": 5.064266,
+    "mean_yield_sd": 0.009365,
+    "cvar5_yield_sd": 0.014947,
+    "worst_yield_sd": 0.017373
+   },
+   {
+    "wetness": 1.0,
+    "season_rain": 462.495261,
+    "water": 168.943333,
+    "mean_yield": 0.962999,
+    "cvar5_yield": 0.88742,
+    "worst_yield": 0.852616,
+    "water_sd": 4.541741,
+    "mean_yield_sd": 0.008262,
+    "cvar5_yield_sd": 0.013405,
+    "worst_yield_sd": 0.014643
+   },
+   {
+    "wetness": 1.1,
+    "season_rain": 508.981746,
+    "water": 152.38,
+    "mean_yield": 0.968005,
+    "cvar5_yield": 0.892681,
+    "worst_yield": 0.859079,
+    "water_sd": 4.215059,
+    "mean_yield_sd": 0.00732,
+    "cvar5_yield_sd": 0.013638,
+    "worst_yield_sd": 0.015842
+   },
+   {
+    "wetness": 1.2,
+    "season_rain": 554.561938,
+    "water": 136.986667,
+    "mean_yield": 0.97209,
+    "cvar5_yield": 0.901371,
+    "worst_yield": 0.862715,
+    "water_sd": 3.893248,
+    "mean_yield_sd": 0.006381,
+    "cvar5_yield_sd": 0.013106,
+    "worst_yield_sd": 0.018857
+   }
+  ],
+  "threshold 0.90": [
+   {
+    "wetness": 0.6,
+    "season_rain": 276.233952,
+    "water": 302.516667,
+    "mean_yield": 0.960888,
+    "cvar5_yield": 0.942962,
+    "worst_yield": 0.935622,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.7,
+    "season_rain": 323.278792,
+    "water": 271.15,
+    "mean_yield": 0.963712,
+    "cvar5_yield": 0.944101,
+    "worst_yield": 0.933072,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.8,
+    "season_rain": 369.880461,
+    "water": 243.316667,
+    "mean_yield": 0.966563,
+    "cvar5_yield": 0.946362,
+    "worst_yield": 0.937089,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.9,
+    "season_rain": 416.036883,
+    "water": 220.133333,
+    "mean_yield": 0.968573,
+    "cvar5_yield": 0.947046,
+    "worst_yield": 0.941075,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.0,
+    "season_rain": 462.495261,
+    "water": 198.733333,
+    "mean_yield": 0.970736,
+    "cvar5_yield": 0.948737,
+    "worst_yield": 0.942929,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.1,
+    "season_rain": 508.981746,
+    "water": 180.283333,
+    "mean_yield": 0.973078,
+    "cvar5_yield": 0.950128,
+    "worst_yield": 0.937598,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.2,
+    "season_rain": 554.561938,
+    "water": 162.35,
+    "mean_yield": 0.974863,
+    "cvar5_yield": 0.950677,
+    "worst_yield": 0.932224,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "threshold+forecast 0.90": [
+   {
+    "wetness": 0.6,
+    "season_rain": 276.233952,
+    "water": 287.466667,
+    "mean_yield": 0.935505,
+    "cvar5_yield": 0.851503,
+    "worst_yield": 0.701502,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.7,
+    "season_rain": 323.278792,
+    "water": 253.733333,
+    "mean_yield": 0.939089,
+    "cvar5_yield": 0.854687,
+    "worst_yield": 0.758927,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.8,
+    "season_rain": 369.880461,
+    "water": 225.066667,
+    "mean_yield": 0.938378,
+    "cvar5_yield": 0.847996,
+    "worst_yield": 0.772889,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.9,
+    "season_rain": 416.036883,
+    "water": 201.5,
+    "mean_yield": 0.941641,
+    "cvar5_yield": 0.860587,
+    "worst_yield": 0.705236,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.0,
+    "season_rain": 462.495261,
+    "water": 178.633333,
+    "mean_yield": 0.943044,
+    "cvar5_yield": 0.853709,
+    "worst_yield": 0.765154,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.1,
+    "season_rain": 508.981746,
+    "water": 159.6,
+    "mean_yield": 0.946423,
+    "cvar5_yield": 0.860053,
+    "worst_yield": 0.782466,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.2,
+    "season_rain": 554.561938,
+    "water": 141.433333,
+    "mean_yield": 0.946473,
+    "cvar5_yield": 0.85952,
+    "worst_yield": 0.77841,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "stage threshold 0.90": [
+   {
+    "wetness": 0.6,
+    "season_rain": 276.233952,
+    "water": 293.666667,
+    "mean_yield": 0.944926,
+    "cvar5_yield": 0.915442,
+    "worst_yield": 0.906822,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.7,
+    "season_rain": 323.278792,
+    "water": 263.233333,
+    "mean_yield": 0.950163,
+    "cvar5_yield": 0.92075,
+    "worst_yield": 0.902762,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.8,
+    "season_rain": 369.880461,
+    "water": 237.166667,
+    "mean_yield": 0.954456,
+    "cvar5_yield": 0.92567,
+    "worst_yield": 0.915699,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.9,
+    "season_rain": 416.036883,
+    "water": 214.616667,
+    "mean_yield": 0.958973,
+    "cvar5_yield": 0.927241,
+    "worst_yield": 0.912187,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.0,
+    "season_rain": 462.495261,
+    "water": 193.95,
+    "mean_yield": 0.962346,
+    "cvar5_yield": 0.930728,
+    "worst_yield": 0.915362,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.1,
+    "season_rain": 508.981746,
+    "water": 175.966667,
+    "mean_yield": 0.965475,
+    "cvar5_yield": 0.933527,
+    "worst_yield": 0.915764,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.2,
+    "season_rain": 554.561938,
+    "water": 158.816667,
+    "mean_yield": 0.96825,
+    "cvar5_yield": 0.936936,
+    "worst_yield": 0.921737,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "ET controller 0.90": [
+   {
+    "wetness": 0.6,
+    "season_rain": 276.233952,
+    "water": 306.366667,
+    "mean_yield": 0.951232,
+    "cvar5_yield": 0.908191,
+    "worst_yield": 0.892343,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.7,
+    "season_rain": 323.278792,
+    "water": 273.2,
+    "mean_yield": 0.949058,
+    "cvar5_yield": 0.909495,
+    "worst_yield": 0.888239,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.8,
+    "season_rain": 369.880461,
+    "water": 245.033333,
+    "mean_yield": 0.947856,
+    "cvar5_yield": 0.906829,
+    "worst_yield": 0.897326,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.9,
+    "season_rain": 416.036883,
+    "water": 220.4,
+    "mean_yield": 0.947473,
+    "cvar5_yield": 0.90826,
+    "worst_yield": 0.889206,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.0,
+    "season_rain": 462.495261,
+    "water": 197.966667,
+    "mean_yield": 0.947393,
+    "cvar5_yield": 0.912623,
+    "worst_yield": 0.900011,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.1,
+    "season_rain": 508.981746,
+    "water": 178.333333,
+    "mean_yield": 0.947287,
+    "cvar5_yield": 0.908386,
+    "worst_yield": 0.895784,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.2,
+    "season_rain": 554.561938,
+    "water": 160.8,
+    "mean_yield": 0.948861,
+    "cvar5_yield": 0.909483,
+    "worst_yield": 0.890604,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "CVaR-PPO 0.95": [
+   {
+    "wetness": 0.6,
+    "season_rain": 276.233952,
+    "water": 282.511667,
+    "mean_yield": 0.9705,
+    "cvar5_yield": 0.918907,
+    "worst_yield": 0.899941,
+    "water_sd": 3.52522,
+    "mean_yield_sd": 0.00579,
+    "cvar5_yield_sd": 0.010638,
+    "worst_yield_sd": 0.012149
+   },
+   {
+    "wetness": 0.7,
+    "season_rain": 323.278792,
+    "water": 252.325,
+    "mean_yield": 0.975498,
+    "cvar5_yield": 0.922439,
+    "worst_yield": 0.904126,
+    "water_sd": 3.712081,
+    "mean_yield_sd": 0.005467,
+    "cvar5_yield_sd": 0.009406,
+    "worst_yield_sd": 0.012866
+   },
+   {
+    "wetness": 0.8,
+    "season_rain": 369.880461,
+    "water": 226.425,
+    "mean_yield": 0.979589,
+    "cvar5_yield": 0.926647,
+    "worst_yield": 0.901343,
+    "water_sd": 3.793511,
+    "mean_yield_sd": 0.005068,
+    "cvar5_yield_sd": 0.009083,
+    "worst_yield_sd": 0.015852
+   },
+   {
+    "wetness": 0.9,
+    "season_rain": 416.036883,
+    "water": 204.053333,
+    "mean_yield": 0.982525,
+    "cvar5_yield": 0.93053,
+    "worst_yield": 0.898383,
+    "water_sd": 3.782937,
+    "mean_yield_sd": 0.004636,
+    "cvar5_yield_sd": 0.008503,
+    "worst_yield_sd": 0.016592
+   },
+   {
+    "wetness": 1.0,
+    "season_rain": 462.495261,
+    "water": 183.331667,
+    "mean_yield": 0.984832,
+    "cvar5_yield": 0.934499,
+    "worst_yield": 0.909537,
+    "water_sd": 3.761904,
+    "mean_yield_sd": 0.004401,
+    "cvar5_yield_sd": 0.008936,
+    "worst_yield_sd": 0.011866
+   },
+   {
+    "wetness": 1.1,
+    "season_rain": 508.981746,
+    "water": 165.306667,
+    "mean_yield": 0.9868,
+    "cvar5_yield": 0.93716,
+    "worst_yield": 0.913459,
+    "water_sd": 3.672823,
+    "mean_yield_sd": 0.003985,
+    "cvar5_yield_sd": 0.009546,
+    "worst_yield_sd": 0.012514
+   },
+   {
+    "wetness": 1.2,
+    "season_rain": 554.561938,
+    "water": 148.698333,
+    "mean_yield": 0.988334,
+    "cvar5_yield": 0.943138,
+    "worst_yield": 0.914294,
+    "water_sd": 3.658288,
+    "mean_yield_sd": 0.003777,
+    "cvar5_yield_sd": 0.008829,
+    "worst_yield_sd": 0.009212
+   }
+  ],
+  "threshold 0.95": [
+   {
+    "wetness": 0.6,
+    "season_rain": 276.233952,
+    "water": 302.516667,
+    "mean_yield": 0.960888,
+    "cvar5_yield": 0.942962,
+    "worst_yield": 0.935622,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.7,
+    "season_rain": 323.278792,
+    "water": 271.15,
+    "mean_yield": 0.963712,
+    "cvar5_yield": 0.944101,
+    "worst_yield": 0.933072,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.8,
+    "season_rain": 369.880461,
+    "water": 243.316667,
+    "mean_yield": 0.966563,
+    "cvar5_yield": 0.946362,
+    "worst_yield": 0.937089,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.9,
+    "season_rain": 416.036883,
+    "water": 220.133333,
+    "mean_yield": 0.968573,
+    "cvar5_yield": 0.947046,
+    "worst_yield": 0.941075,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.0,
+    "season_rain": 462.495261,
+    "water": 198.733333,
+    "mean_yield": 0.970736,
+    "cvar5_yield": 0.948737,
+    "worst_yield": 0.942929,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.1,
+    "season_rain": 508.981746,
+    "water": 180.283333,
+    "mean_yield": 0.973078,
+    "cvar5_yield": 0.950128,
+    "worst_yield": 0.937598,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.2,
+    "season_rain": 554.561938,
+    "water": 162.35,
+    "mean_yield": 0.974863,
+    "cvar5_yield": 0.950677,
+    "worst_yield": 0.932224,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "threshold+forecast 0.95": [
+   {
+    "wetness": 0.6,
+    "season_rain": 276.233952,
+    "water": 301.516667,
+    "mean_yield": 0.981034,
+    "cvar5_yield": 0.916306,
+    "worst_yield": 0.821914,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.7,
+    "season_rain": 323.278792,
+    "water": 267.166667,
+    "mean_yield": 0.981083,
+    "cvar5_yield": 0.913918,
+    "worst_yield": 0.823963,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.8,
+    "season_rain": 369.880461,
+    "water": 237.716667,
+    "mean_yield": 0.981154,
+    "cvar5_yield": 0.91202,
+    "worst_yield": 0.797017,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.9,
+    "season_rain": 416.036883,
+    "water": 213.083333,
+    "mean_yield": 0.982072,
+    "cvar5_yield": 0.912485,
+    "worst_yield": 0.763932,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.0,
+    "season_rain": 462.495261,
+    "water": 190.55,
+    "mean_yield": 0.983022,
+    "cvar5_yield": 0.922462,
+    "worst_yield": 0.824698,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.1,
+    "season_rain": 508.981746,
+    "water": 170.6,
+    "mean_yield": 0.983825,
+    "cvar5_yield": 0.925025,
+    "worst_yield": 0.836302,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.2,
+    "season_rain": 554.561938,
+    "water": 152.483333,
+    "mean_yield": 0.984271,
+    "cvar5_yield": 0.930841,
+    "worst_yield": 0.858253,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "stage threshold 0.95": [
+   {
+    "wetness": 0.6,
+    "season_rain": 276.233952,
+    "water": 302.516667,
+    "mean_yield": 0.960888,
+    "cvar5_yield": 0.942962,
+    "worst_yield": 0.935622,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.7,
+    "season_rain": 323.278792,
+    "water": 271.15,
+    "mean_yield": 0.963712,
+    "cvar5_yield": 0.944101,
+    "worst_yield": 0.933072,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.8,
+    "season_rain": 369.880461,
+    "water": 243.316667,
+    "mean_yield": 0.966563,
+    "cvar5_yield": 0.946362,
+    "worst_yield": 0.937089,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.9,
+    "season_rain": 416.036883,
+    "water": 220.133333,
+    "mean_yield": 0.968573,
+    "cvar5_yield": 0.947046,
+    "worst_yield": 0.941075,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.0,
+    "season_rain": 462.495261,
+    "water": 198.733333,
+    "mean_yield": 0.970736,
+    "cvar5_yield": 0.948737,
+    "worst_yield": 0.942929,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.1,
+    "season_rain": 508.981746,
+    "water": 180.283333,
+    "mean_yield": 0.973078,
+    "cvar5_yield": 0.950128,
+    "worst_yield": 0.937598,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.2,
+    "season_rain": 554.561938,
+    "water": 162.35,
+    "mean_yield": 0.974863,
+    "cvar5_yield": 0.950677,
+    "worst_yield": 0.932224,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "ET controller 0.95": [
+   {
+    "wetness": 0.6,
+    "season_rain": 276.233952,
+    "water": 319.366667,
+    "mean_yield": 0.996009,
+    "cvar5_yield": 0.981984,
+    "worst_yield": 0.970376,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.7,
+    "season_rain": 323.278792,
+    "water": 287.2,
+    "mean_yield": 0.995689,
+    "cvar5_yield": 0.98116,
+    "worst_yield": 0.964399,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.8,
+    "season_rain": 369.880461,
+    "water": 259.166667,
+    "mean_yield": 0.995133,
+    "cvar5_yield": 0.980953,
+    "worst_yield": 0.972737,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 0.9,
+    "season_rain": 416.036883,
+    "water": 236.033333,
+    "mean_yield": 0.994774,
+    "cvar5_yield": 0.980438,
+    "worst_yield": 0.970547,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.0,
+    "season_rain": 462.495261,
+    "water": 213.933333,
+    "mean_yield": 0.994471,
+    "cvar5_yield": 0.979826,
+    "worst_yield": 0.969355,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.1,
+    "season_rain": 508.981746,
+    "water": 194.6,
+    "mean_yield": 0.994598,
+    "cvar5_yield": 0.98076,
+    "worst_yield": 0.974282,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "wetness": 1.2,
+    "season_rain": 554.561938,
+    "water": 175.8,
+    "mean_yield": 0.994622,
+    "cvar5_yield": 0.981403,
+    "worst_yield": 0.974711,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ]
+ },
+ "forecast_sweep": {
+  "CVaR-PPO 0.90": [
+   {
+    "noise": 0.0,
+    "water": 185.027027,
+    "mean_yield": 0.962833,
+    "cvar5_yield": 0.895186,
+    "worst_yield": 0.874918,
+    "water_sd": 4.766412,
+    "mean_yield_sd": 0.008108,
+    "cvar5_yield_sd": 0.012445,
+    "worst_yield_sd": 0.020179
+   },
+   {
+    "noise": 0.25,
+    "water": 184.513514,
+    "mean_yield": 0.961628,
+    "cvar5_yield": 0.894083,
+    "worst_yield": 0.873932,
+    "water_sd": 4.921869,
+    "mean_yield_sd": 0.00859,
+    "cvar5_yield_sd": 0.013552,
+    "worst_yield_sd": 0.020015
+   },
+   {
+    "noise": 0.5,
+    "water": 184.675676,
+    "mean_yield": 0.961646,
+    "cvar5_yield": 0.894458,
+    "worst_yield": 0.875858,
+    "water_sd": 4.902585,
+    "mean_yield_sd": 0.008547,
+    "cvar5_yield_sd": 0.01315,
+    "worst_yield_sd": 0.019606
+   },
+   {
+    "noise": 1.0,
+    "water": 187.810811,
+    "mean_yield": 0.963754,
+    "cvar5_yield": 0.894584,
+    "worst_yield": 0.875309,
+    "water_sd": 4.933265,
+    "mean_yield_sd": 0.008438,
+    "cvar5_yield_sd": 0.014194,
+    "worst_yield_sd": 0.022198
+   },
+   {
+    "noise": 2.0,
+    "water": 200.135135,
+    "mean_yield": 0.97385,
+    "cvar5_yield": 0.904883,
+    "worst_yield": 0.888536,
+    "water_sd": 4.912957,
+    "mean_yield_sd": 0.00715,
+    "cvar5_yield_sd": 0.012945,
+    "worst_yield_sd": 0.018662
+   }
+  ],
+  "threshold 0.90": [
+   {
+    "noise": 0.0,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.25,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.5,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 1.0,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 2.0,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "threshold+forecast 0.90": [
+   {
+    "noise": 0.0,
+    "water": 195.405405,
+    "mean_yield": 0.944728,
+    "cvar5_yield": 0.87209,
+    "worst_yield": 0.857182,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.25,
+    "water": 196.216216,
+    "mean_yield": 0.944119,
+    "cvar5_yield": 0.872804,
+    "worst_yield": 0.860035,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.5,
+    "water": 197.027027,
+    "mean_yield": 0.946159,
+    "cvar5_yield": 0.8806,
+    "worst_yield": 0.864212,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 1.0,
+    "water": 201.621622,
+    "mean_yield": 0.952663,
+    "cvar5_yield": 0.896668,
+    "worst_yield": 0.8809,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 2.0,
+    "water": 217.297297,
+    "mean_yield": 0.967579,
+    "cvar5_yield": 0.925423,
+    "worst_yield": 0.914244,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "stage threshold 0.90": [
+   {
+    "noise": 0.0,
+    "water": 212.162162,
+    "mean_yield": 0.959429,
+    "cvar5_yield": 0.92697,
+    "worst_yield": 0.916293,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.25,
+    "water": 212.162162,
+    "mean_yield": 0.959429,
+    "cvar5_yield": 0.92697,
+    "worst_yield": 0.916293,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.5,
+    "water": 212.162162,
+    "mean_yield": 0.959429,
+    "cvar5_yield": 0.92697,
+    "worst_yield": 0.916293,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 1.0,
+    "water": 212.162162,
+    "mean_yield": 0.959429,
+    "cvar5_yield": 0.92697,
+    "worst_yield": 0.916293,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 2.0,
+    "water": 212.162162,
+    "mean_yield": 0.959429,
+    "cvar5_yield": 0.92697,
+    "worst_yield": 0.916293,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "ET controller 0.90": [
+   {
+    "noise": 0.0,
+    "water": 217.297297,
+    "mean_yield": 0.948783,
+    "cvar5_yield": 0.90998,
+    "worst_yield": 0.904294,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.25,
+    "water": 217.297297,
+    "mean_yield": 0.948783,
+    "cvar5_yield": 0.90998,
+    "worst_yield": 0.904294,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.5,
+    "water": 217.297297,
+    "mean_yield": 0.948783,
+    "cvar5_yield": 0.90998,
+    "worst_yield": 0.904294,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 1.0,
+    "water": 217.297297,
+    "mean_yield": 0.948783,
+    "cvar5_yield": 0.90998,
+    "worst_yield": 0.904294,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 2.0,
+    "water": 217.297297,
+    "mean_yield": 0.948783,
+    "cvar5_yield": 0.90998,
+    "worst_yield": 0.904294,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "CVaR-PPO 0.95": [
+   {
+    "noise": 0.0,
+    "water": 199.959459,
+    "mean_yield": 0.984962,
+    "cvar5_yield": 0.942297,
+    "worst_yield": 0.933779,
+    "water_sd": 3.453423,
+    "mean_yield_sd": 0.003601,
+    "cvar5_yield_sd": 0.008687,
+    "worst_yield_sd": 0.012425
+   },
+   {
+    "noise": 0.25,
+    "water": 199.608108,
+    "mean_yield": 0.984574,
+    "cvar5_yield": 0.941565,
+    "worst_yield": 0.93596,
+    "water_sd": 3.379865,
+    "mean_yield_sd": 0.00348,
+    "cvar5_yield_sd": 0.008091,
+    "worst_yield_sd": 0.00914
+   },
+   {
+    "noise": 0.5,
+    "water": 200.054054,
+    "mean_yield": 0.984587,
+    "cvar5_yield": 0.941907,
+    "worst_yield": 0.935149,
+    "water_sd": 3.201947,
+    "mean_yield_sd": 0.00335,
+    "cvar5_yield_sd": 0.008575,
+    "worst_yield_sd": 0.010374
+   },
+   {
+    "noise": 1.0,
+    "water": 203.189189,
+    "mean_yield": 0.985627,
+    "cvar5_yield": 0.940745,
+    "worst_yield": 0.933192,
+    "water_sd": 3.45633,
+    "mean_yield_sd": 0.003101,
+    "cvar5_yield_sd": 0.005911,
+    "worst_yield_sd": 0.007357
+   },
+   {
+    "noise": 2.0,
+    "water": 215.959459,
+    "mean_yield": 0.99127,
+    "cvar5_yield": 0.952141,
+    "worst_yield": 0.947725,
+    "water_sd": 3.515917,
+    "mean_yield_sd": 0.001734,
+    "cvar5_yield_sd": 0.004961,
+    "worst_yield_sd": 0.004452
+   }
+  ],
+  "threshold 0.95": [
+   {
+    "noise": 0.0,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.25,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.5,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 1.0,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 2.0,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "threshold+forecast 0.95": [
+   {
+    "noise": 0.0,
+    "water": 208.513514,
+    "mean_yield": 0.985512,
+    "cvar5_yield": 0.943287,
+    "worst_yield": 0.920952,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.25,
+    "water": 208.648649,
+    "mean_yield": 0.985634,
+    "cvar5_yield": 0.949737,
+    "worst_yield": 0.939745,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.5,
+    "water": 209.594595,
+    "mean_yield": 0.988043,
+    "cvar5_yield": 0.95871,
+    "worst_yield": 0.951663,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 1.0,
+    "water": 213.918919,
+    "mean_yield": 0.990967,
+    "cvar5_yield": 0.965729,
+    "worst_yield": 0.961016,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 2.0,
+    "water": 227.432432,
+    "mean_yield": 0.996985,
+    "cvar5_yield": 0.985984,
+    "worst_yield": 0.983571,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "stage threshold 0.95": [
+   {
+    "noise": 0.0,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.25,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.5,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 1.0,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 2.0,
+    "water": 217.027027,
+    "mean_yield": 0.969562,
+    "cvar5_yield": 0.951118,
+    "worst_yield": 0.94839,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ],
+  "ET controller 0.95": [
+   {
+    "noise": 0.0,
+    "water": 233.783784,
+    "mean_yield": 0.995118,
+    "cvar5_yield": 0.980138,
+    "worst_yield": 0.971289,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.25,
+    "water": 233.783784,
+    "mean_yield": 0.995118,
+    "cvar5_yield": 0.980138,
+    "worst_yield": 0.971289,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 0.5,
+    "water": 233.783784,
+    "mean_yield": 0.995118,
+    "cvar5_yield": 0.980138,
+    "worst_yield": 0.971289,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 1.0,
+    "water": 233.783784,
+    "mean_yield": 0.995118,
+    "cvar5_yield": 0.980138,
+    "worst_yield": 0.971289,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   },
+   {
+    "noise": 2.0,
+    "water": 233.783784,
+    "mean_yield": 0.995118,
+    "cvar5_yield": 0.980138,
+    "worst_yield": 0.971289,
+    "water_sd": 0.0,
+    "mean_yield_sd": 0.0,
+    "cvar5_yield_sd": 0.0,
+    "worst_yield_sd": 0.0
+   }
+  ]
+ }
+}

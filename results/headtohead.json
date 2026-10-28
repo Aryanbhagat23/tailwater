@@ -1,0 +1,230 @@
+{
+ "vs_baselines": [
+  {
+   "agent": "tabular_k10",
+   "metric": "cvar5_yield",
+   "saving_mean": -80.825724,
+   "saving_sd": 14.449373,
+   "n_beat": 0,
+   "n": 5
+  },
+  {
+   "agent": "tabular_k10",
+   "metric": "mean_yield",
+   "saving_mean": -31.65194,
+   "saving_sd": 5.022747,
+   "n_beat": 0,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k2",
+   "metric": "cvar5_yield",
+   "saving_mean": 43.527161,
+   "saving_sd": 1.743911,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k2",
+   "metric": "mean_yield",
+   "saving_mean": 74.496582,
+   "saving_sd": 1.270914,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k5",
+   "metric": "cvar5_yield",
+   "saving_mean": 33.631232,
+   "saving_sd": 1.556181,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k5",
+   "metric": "mean_yield",
+   "saving_mean": 59.689104,
+   "saving_sd": 0.945714,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k6",
+   "metric": "cvar5_yield",
+   "saving_mean": 19.526037,
+   "saving_sd": 3.350822,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k6",
+   "metric": "mean_yield",
+   "saving_mean": 27.782103,
+   "saving_sd": 3.45177,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k7",
+   "metric": "cvar5_yield",
+   "saving_mean": 11.502147,
+   "saving_sd": 2.776803,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k7",
+   "metric": "mean_yield",
+   "saving_mean": 16.7726,
+   "saving_sd": 1.854922,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k8",
+   "metric": "cvar5_yield",
+   "saving_mean": 9.369823,
+   "saving_sd": 1.526453,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k8",
+   "metric": "mean_yield",
+   "saving_mean": 11.401458,
+   "saving_sd": 0.427553,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k10",
+   "metric": "cvar5_yield",
+   "saving_mean": 7.453602,
+   "saving_sd": 0.746959,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k10",
+   "metric": "mean_yield",
+   "saving_mean": 6.833919,
+   "saving_sd": 1.109495,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k20",
+   "metric": "cvar5_yield",
+   "saving_mean": 8.075201,
+   "saving_sd": 1.24143,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "ppo_k20",
+   "metric": "mean_yield",
+   "saving_mean": 7.043243,
+   "saving_sd": 0.20436,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "cvar_f80",
+   "metric": "cvar5_yield",
+   "saving_mean": 24.835481,
+   "saving_sd": 1.358009,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "cvar_f80",
+   "metric": "mean_yield",
+   "saving_mean": 32.69107,
+   "saving_sd": 1.056828,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "cvar_f90",
+   "metric": "cvar5_yield",
+   "saving_mean": 11.767885,
+   "saving_sd": 0.993807,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "cvar_f90",
+   "metric": "mean_yield",
+   "saving_mean": 16.663533,
+   "saving_sd": 1.32553,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "cvar_f95",
+   "metric": "cvar5_yield",
+   "saving_mean": 3.749114,
+   "saving_sd": 2.323197,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "cvar_f95",
+   "metric": "mean_yield",
+   "saving_mean": 6.342416,
+   "saving_sd": 1.854263,
+   "n_beat": 5,
+   "n": 5
+  }
+ ],
+ "vs_risk_neutral": [
+  {
+   "agent": "cvar_f80",
+   "metric": "cvar5_yield",
+   "saving_mean": 4.33402,
+   "saving_sd": 2.162786,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "cvar_f80",
+   "metric": "mean_yield",
+   "saving_mean": 0.660125,
+   "saving_sd": 1.426892,
+   "n_beat": 4,
+   "n": 5
+  },
+  {
+   "agent": "cvar_f90",
+   "metric": "cvar5_yield",
+   "saving_mean": 1.745108,
+   "saving_sd": 0.698828,
+   "n_beat": 5,
+   "n": 5
+  },
+  {
+   "agent": "cvar_f90",
+   "metric": "mean_yield",
+   "saving_mean": 0.961216,
+   "saving_sd": 0.873771,
+   "n_beat": 4,
+   "n": 5
+  },
+  {
+   "agent": "cvar_f95",
+   "metric": "cvar5_yield",
+   "saving_mean": -4.692599,
+   "saving_sd": 2.194011,
+   "n_beat": 0,
+   "n": 5
+  },
+  {
+   "agent": "cvar_f95",
+   "metric": "mean_yield",
+   "saving_mean": -0.606036,
+   "saving_sd": 0.582732,
+   "n_beat": 1,
+   "n": 5
+  }
+ ]
+}

@@ -178,6 +178,6 @@ FAMILIES = {
     "stage threshold": lambda: _grid(StageThreshold, trigger_tolerant=TRIGGERS,
                                      trigger_sensitive=TRIGGERS, amount=AMOUNTS),
     "ET controller": lambda: _grid(ETController, trigger=(5.0, 10.0, 15.0, 20.0, 25.0, 30.0,
-                                                          40.0, 50.0, 60.0),
+                                                          40.0, 50.0, 60.0, 70.0, 80.0, 100.0),
                                    refill=(0.5, 0.75, 1.0)),
 }

@@ -47,8 +47,8 @@ class TabularQPolicy(Policy):
         return np.argmax(self.q[encode(obs)], axis=1)
 
 
-def train_tabular_q(weather, kappa: float = 10.0, episodes: int = 30000, batch: int = 32,
-                    alpha: float = 0.2, gamma: float = 1.0, eps_start: float = 0.5,
+def train_tabular_q(weather, kappa: float = 10.0, episodes: int = 40000, batch: int = 32,
+                    alpha: float = 0.5, gamma: float = 1.0, eps_start: float = 0.5,
                     eps_end: float = 0.02, forecast_noise: float = 0.5, seed: int = 0,
                     log_every: int = 0):
     rng = np.random.default_rng(seed)

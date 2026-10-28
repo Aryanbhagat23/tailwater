@@ -1,0 +1,1558 @@
+{
+ "variability": {
+  "synthetic_iid": {
+   "rain": {
+    "mean": 136.205073,
+    "sd": 38.286542,
+    "cv": 0.281095,
+    "p5": 78.305996,
+    "p95": 203.217911
+   },
+   "et0": {
+    "mean": 720.030657,
+    "sd": 9.615675,
+    "cv": 0.013355,
+    "p5": 704.156749,
+    "p95": 735.764689
+   }
+  },
+  "noaa": {
+   "rain": {
+    "mean": 460.160811,
+    "sd": 159.436018,
+    "cv": 0.346479,
+    "p5": 242.42,
+    "p95": 750.375
+   },
+   "et0": {
+    "mean": 611.211242,
+    "sd": 23.893842,
+    "cv": 0.039093,
+    "p5": 578.053287,
+    "p95": 650.878795
+   }
+  },
+  "synthetic_fitted": {
+   "rain": {
+    "mean": 456.518761,
+    "sd": 153.458708,
+    "cv": 0.33615,
+    "p5": 234.134304,
+    "p95": 731.193597
+   },
+   "et0": {
+    "mean": 607.858891,
+    "sd": 26.256512,
+    "cv": 0.043195,
+    "p5": 566.026845,
+    "p95": 652.833042
+   }
+  }
+ },
+ "sweeps": {
+  "iid_linear": [
+   {
+    "rate": 0.0,
+    "water": 0.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.0,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": Infinity,
+    "n": 1000
+   },
+   {
+    "rate": 0.25,
+    "water": 30.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.0,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": Infinity,
+    "n": 1000
+   },
+   {
+    "rate": 0.5,
+    "water": 60.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.0,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": Infinity,
+    "n": 1000
+   },
+   {
+    "rate": 0.75,
+    "water": 90.0,
+    "water_sd": 0.0,
+    "mean_yield": 5.5e-05,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 1628820.945171,
+    "n": 1000
+   },
+   {
+    "rate": 1.0,
+    "water": 120.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.000314,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 381596.638406,
+    "n": 1000
+   },
+   {
+    "rate": 1.25,
+    "water": 150.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.000822,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 182571.263083,
+    "n": 1000
+   },
+   {
+    "rate": 1.5,
+    "water": 180.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.003194,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 56356.85227,
+    "n": 1000
+   },
+   {
+    "rate": 1.75,
+    "water": 210.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.010591,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 19828.995028,
+    "n": 1000
+   },
+   {
+    "rate": 2.0,
+    "water": 240.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.029515,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 8131.589574,
+    "n": 1000
+   },
+   {
+    "rate": 2.25,
+    "water": 270.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.069643,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 3876.928686,
+    "n": 1000
+   },
+   {
+    "rate": 2.5,
+    "water": 300.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.136437,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 2198.820322,
+    "n": 1000
+   },
+   {
+    "rate": 2.75,
+    "water": 330.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.222375,
+    "p5_yield": 0.01351,
+    "cvar5_yield": 0.001617,
+    "worst_yield": 0.0,
+    "water_per_yield": 1483.982902,
+    "n": 1000
+   },
+   {
+    "rate": 3.0,
+    "water": 360.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.314611,
+    "p5_yield": 0.109507,
+    "cvar5_yield": 0.06967,
+    "worst_yield": 0.0,
+    "water_per_yield": 1144.271618,
+    "n": 1000
+   },
+   {
+    "rate": 3.25,
+    "water": 390.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.405828,
+    "p5_yield": 0.205447,
+    "cvar5_yield": 0.165109,
+    "worst_yield": 0.074462,
+    "water_per_yield": 960.997434,
+    "n": 1000
+   },
+   {
+    "rate": 3.5,
+    "water": 420.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.494407,
+    "p5_yield": 0.299761,
+    "cvar5_yield": 0.258903,
+    "worst_yield": 0.164144,
+    "water_per_yield": 849.501691,
+    "n": 1000
+   },
+   {
+    "rate": 3.75,
+    "water": 450.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.580058,
+    "p5_yield": 0.390957,
+    "cvar5_yield": 0.351037,
+    "worst_yield": 0.254218,
+    "water_per_yield": 775.784365,
+    "n": 1000
+   },
+   {
+    "rate": 4.0,
+    "water": 480.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.662155,
+    "p5_yield": 0.480218,
+    "cvar5_yield": 0.441277,
+    "worst_yield": 0.34495,
+    "water_per_yield": 724.906093,
+    "n": 1000
+   },
+   {
+    "rate": 4.25,
+    "water": 510.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.739579,
+    "p5_yield": 0.563988,
+    "cvar5_yield": 0.527973,
+    "worst_yield": 0.435931,
+    "water_per_yield": 689.581912,
+    "n": 1000
+   },
+   {
+    "rate": 4.5,
+    "water": 540.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.811338,
+    "p5_yield": 0.644353,
+    "cvar5_yield": 0.610953,
+    "worst_yield": 0.52688,
+    "water_per_yield": 665.567549,
+    "n": 1000
+   },
+   {
+    "rate": 4.75,
+    "water": 570.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.875264,
+    "p5_yield": 0.721656,
+    "cvar5_yield": 0.690742,
+    "worst_yield": 0.611284,
+    "water_per_yield": 651.232031,
+    "n": 1000
+   },
+   {
+    "rate": 5.0,
+    "water": 600.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.928339,
+    "p5_yield": 0.797709,
+    "cvar5_yield": 0.767183,
+    "worst_yield": 0.683566,
+    "water_per_yield": 646.315729,
+    "n": 1000
+   },
+   {
+    "rate": 5.25,
+    "water": 630.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.966804,
+    "p5_yield": 0.866922,
+    "cvar5_yield": 0.838488,
+    "worst_yield": 0.754566,
+    "water_per_yield": 651.63183,
+    "n": 1000
+   },
+   {
+    "rate": 5.5,
+    "water": 660.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.988587,
+    "p5_yield": 0.925973,
+    "cvar5_yield": 0.904239,
+    "worst_yield": 0.824625,
+    "water_per_yield": 667.619631,
+    "n": 1000
+   },
+   {
+    "rate": 5.75,
+    "water": 690.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.997725,
+    "p5_yield": 0.982427,
+    "cvar5_yield": 0.962342,
+    "worst_yield": 0.895652,
+    "water_per_yield": 691.573155,
+    "n": 1000
+   },
+   {
+    "rate": 6.0,
+    "water": 720.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.999825,
+    "p5_yield": 1.0,
+    "cvar5_yield": 0.996509,
+    "worst_yield": 0.958225,
+    "water_per_yield": 720.125685,
+    "n": 1000
+   },
+   {
+    "rate": 6.25,
+    "water": 750.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 0.999995,
+    "worst_yield": 0.999752,
+    "water_per_yield": 750.000186,
+    "n": 1000
+   },
+   {
+    "rate": 6.5,
+    "water": 780.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 780.0,
+    "n": 1000
+   },
+   {
+    "rate": 6.75,
+    "water": 810.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 810.0,
+    "n": 1000
+   },
+   {
+    "rate": 7.0,
+    "water": 840.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 840.0,
+    "n": 1000
+   }
+  ],
+  "noaa_linear": [
+   {
+    "rate": 0.0,
+    "water": 0.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.191771,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 0.0,
+    "n": 74
+   },
+   {
+    "rate": 0.25,
+    "water": 30.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.24523,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 122.333926,
+    "n": 74
+   },
+   {
+    "rate": 0.5,
+    "water": 60.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.308429,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 194.534338,
+    "n": 74
+   },
+   {
+    "rate": 0.75,
+    "water": 90.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.374894,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 240.068097,
+    "n": 74
+   },
+   {
+    "rate": 1.0,
+    "water": 120.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.441004,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 272.106608,
+    "n": 74
+   },
+   {
+    "rate": 1.25,
+    "water": 150.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.504977,
+    "p5_yield": 0.021726,
+    "cvar5_yield": 0.008786,
+    "worst_yield": 0.0,
+    "water_per_yield": 297.043499,
+    "n": 74
+   },
+   {
+    "rate": 1.5,
+    "water": 180.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.567388,
+    "p5_yield": 0.125833,
+    "cvar5_yield": 0.058057,
+    "worst_yield": 0.0,
+    "water_per_yield": 317.24318,
+    "n": 74
+   },
+   {
+    "rate": 1.75,
+    "water": 210.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.624579,
+    "p5_yield": 0.231448,
+    "cvar5_yield": 0.119559,
+    "worst_yield": 0.0,
+    "water_per_yield": 336.22636,
+    "n": 74
+   },
+   {
+    "rate": 2.0,
+    "water": 240.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.677772,
+    "p5_yield": 0.324343,
+    "cvar5_yield": 0.185769,
+    "worst_yield": 0.0,
+    "water_per_yield": 354.101323,
+    "n": 74
+   },
+   {
+    "rate": 2.25,
+    "water": 270.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.727479,
+    "p5_yield": 0.392323,
+    "cvar5_yield": 0.26323,
+    "worst_yield": 0.078796,
+    "water_per_yield": 371.144543,
+    "n": 74
+   },
+   {
+    "rate": 2.5,
+    "water": 300.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.772263,
+    "p5_yield": 0.457422,
+    "cvar5_yield": 0.34328,
+    "worst_yield": 0.174609,
+    "water_per_yield": 388.468474,
+    "n": 74
+   },
+   {
+    "rate": 2.75,
+    "water": 330.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.812865,
+    "p5_yield": 0.525747,
+    "cvar5_yield": 0.421427,
+    "worst_yield": 0.268819,
+    "water_per_yield": 405.971396,
+    "n": 74
+   },
+   {
+    "rate": 3.0,
+    "water": 360.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.848447,
+    "p5_yield": 0.59295,
+    "cvar5_yield": 0.495779,
+    "worst_yield": 0.359086,
+    "water_per_yield": 424.304781,
+    "n": 74
+   },
+   {
+    "rate": 3.25,
+    "water": 390.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.880028,
+    "p5_yield": 0.659567,
+    "cvar5_yield": 0.56842,
+    "worst_yield": 0.446862,
+    "water_per_yield": 443.167572,
+    "n": 74
+   },
+   {
+    "rate": 3.5,
+    "water": 420.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.907547,
+    "p5_yield": 0.725077,
+    "cvar5_yield": 0.640079,
+    "worst_yield": 0.533821,
+    "water_per_yield": 462.785699,
+    "n": 74
+   },
+   {
+    "rate": 3.75,
+    "water": 450.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.931335,
+    "p5_yield": 0.779527,
+    "cvar5_yield": 0.707972,
+    "worst_yield": 0.619394,
+    "water_per_yield": 483.177396,
+    "n": 74
+   },
+   {
+    "rate": 4.0,
+    "water": 480.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.951713,
+    "p5_yield": 0.82351,
+    "cvar5_yield": 0.773016,
+    "worst_yield": 0.703108,
+    "water_per_yield": 504.353601,
+    "n": 74
+   },
+   {
+    "rate": 4.25,
+    "water": 510.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.96864,
+    "p5_yield": 0.869137,
+    "cvar5_yield": 0.834758,
+    "worst_yield": 0.780007,
+    "water_per_yield": 526.511522,
+    "n": 74
+   },
+   {
+    "rate": 4.5,
+    "water": 540.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.982153,
+    "p5_yield": 0.91362,
+    "cvar5_yield": 0.888349,
+    "worst_yield": 0.856104,
+    "water_per_yield": 549.812417,
+    "n": 74
+   },
+   {
+    "rate": 4.75,
+    "water": 570.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.992339,
+    "p5_yield": 0.949393,
+    "cvar5_yield": 0.937431,
+    "worst_yield": 0.930514,
+    "water_per_yield": 574.400272,
+    "n": 74
+   },
+   {
+    "rate": 5.0,
+    "water": 600.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.997787,
+    "p5_yield": 0.985015,
+    "cvar5_yield": 0.974734,
+    "worst_yield": 0.968687,
+    "water_per_yield": 601.331044,
+    "n": 74
+   },
+   {
+    "rate": 5.25,
+    "water": 630.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.999824,
+    "p5_yield": 0.999734,
+    "cvar5_yield": 0.996743,
+    "worst_yield": 0.993401,
+    "water_per_yield": 630.110939,
+    "n": 74
+   },
+   {
+    "rate": 5.5,
+    "water": 660.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 660.0,
+    "n": 74
+   },
+   {
+    "rate": 5.75,
+    "water": 690.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 690.0,
+    "n": 74
+   },
+   {
+    "rate": 6.0,
+    "water": 720.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 720.0,
+    "n": 74
+   },
+   {
+    "rate": 6.25,
+    "water": 750.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 750.0,
+    "n": 74
+   },
+   {
+    "rate": 6.5,
+    "water": 780.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 780.0,
+    "n": 74
+   },
+   {
+    "rate": 6.75,
+    "water": 810.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 810.0,
+    "n": 74
+   },
+   {
+    "rate": 7.0,
+    "water": 840.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 840.0,
+    "n": 74
+   }
+  ],
+  "noaa_fao33": [
+   {
+    "rate": 0.0,
+    "water": 0.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.22386,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 0.0,
+    "n": 74
+   },
+   {
+    "rate": 0.25,
+    "water": 30.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.27415,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 109.429268,
+    "n": 74
+   },
+   {
+    "rate": 0.5,
+    "water": 60.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.328991,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 182.37596,
+    "n": 74
+   },
+   {
+    "rate": 0.75,
+    "water": 90.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.38664,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 232.77474,
+    "n": 74
+   },
+   {
+    "rate": 1.0,
+    "water": 120.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.4471,
+    "p5_yield": 0.0,
+    "cvar5_yield": 0.0,
+    "worst_yield": 0.0,
+    "water_per_yield": 268.396105,
+    "n": 74
+   },
+   {
+    "rate": 1.25,
+    "water": 150.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.509193,
+    "p5_yield": 0.049591,
+    "cvar5_yield": 0.01919,
+    "worst_yield": 0.0,
+    "water_per_yield": 294.583957,
+    "n": 74
+   },
+   {
+    "rate": 1.5,
+    "water": 180.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.572803,
+    "p5_yield": 0.121503,
+    "cvar5_yield": 0.084539,
+    "worst_yield": 0.05432,
+    "water_per_yield": 314.244333,
+    "n": 74
+   },
+   {
+    "rate": 1.75,
+    "water": 210.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.634419,
+    "p5_yield": 0.196008,
+    "cvar5_yield": 0.159271,
+    "worst_yield": 0.121122,
+    "water_per_yield": 331.011744,
+    "n": 74
+   },
+   {
+    "rate": 2.0,
+    "water": 240.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.693975,
+    "p5_yield": 0.280315,
+    "cvar5_yield": 0.244535,
+    "worst_yield": 0.19786,
+    "water_per_yield": 345.833727,
+    "n": 74
+   },
+   {
+    "rate": 2.25,
+    "water": 270.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.750421,
+    "p5_yield": 0.366166,
+    "cvar5_yield": 0.33477,
+    "worst_yield": 0.281603,
+    "water_per_yield": 359.797968,
+    "n": 74
+   },
+   {
+    "rate": 2.5,
+    "water": 300.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.800734,
+    "p5_yield": 0.451221,
+    "cvar5_yield": 0.426238,
+    "worst_yield": 0.375119,
+    "water_per_yield": 374.656285,
+    "n": 74
+   },
+   {
+    "rate": 2.75,
+    "water": 330.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.845084,
+    "p5_yield": 0.540489,
+    "cvar5_yield": 0.515953,
+    "worst_yield": 0.467793,
+    "water_per_yield": 390.493656,
+    "n": 74
+   },
+   {
+    "rate": 3.0,
+    "water": 360.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.882406,
+    "p5_yield": 0.628067,
+    "cvar5_yield": 0.603005,
+    "worst_yield": 0.558874,
+    "water_per_yield": 407.97568,
+    "n": 74
+   },
+   {
+    "rate": 3.25,
+    "water": 390.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.9141,
+    "p5_yield": 0.711205,
+    "cvar5_yield": 0.688279,
+    "worst_yield": 0.64827,
+    "water_per_yield": 426.649323,
+    "n": 74
+   },
+   {
+    "rate": 3.5,
+    "water": 420.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.939939,
+    "p5_yield": 0.783942,
+    "cvar5_yield": 0.768825,
+    "worst_yield": 0.7351,
+    "water_per_yield": 446.837645,
+    "n": 74
+   },
+   {
+    "rate": 3.75,
+    "water": 450.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.959919,
+    "p5_yield": 0.849789,
+    "cvar5_yield": 0.836776,
+    "worst_yield": 0.819367,
+    "water_per_yield": 468.789488,
+    "n": 74
+   },
+   {
+    "rate": 4.0,
+    "water": 480.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.974527,
+    "p5_yield": 0.90464,
+    "cvar5_yield": 0.891184,
+    "worst_yield": 0.869338,
+    "water_per_yield": 492.546495,
+    "n": 74
+   },
+   {
+    "rate": 4.25,
+    "water": 510.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.984745,
+    "p5_yield": 0.942423,
+    "cvar5_yield": 0.927038,
+    "worst_yield": 0.902672,
+    "water_per_yield": 517.900462,
+    "n": 74
+   },
+   {
+    "rate": 4.5,
+    "water": 540.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.991756,
+    "p5_yield": 0.962024,
+    "cvar5_yield": 0.950554,
+    "worst_yield": 0.935691,
+    "water_per_yield": 544.488512,
+    "n": 74
+   },
+   {
+    "rate": 4.75,
+    "water": 570.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.996507,
+    "p5_yield": 0.978595,
+    "cvar5_yield": 0.972348,
+    "worst_yield": 0.968203,
+    "water_per_yield": 571.998034,
+    "n": 74
+   },
+   {
+    "rate": 5.0,
+    "water": 600.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.999009,
+    "p5_yield": 0.993505,
+    "cvar5_yield": 0.989075,
+    "worst_yield": 0.985875,
+    "water_per_yield": 600.595343,
+    "n": 74
+   },
+   {
+    "rate": 5.25,
+    "water": 630.0,
+    "water_sd": 0.0,
+    "mean_yield": 0.99992,
+    "p5_yield": 0.999878,
+    "cvar5_yield": 0.998521,
+    "worst_yield": 0.996849,
+    "water_per_yield": 630.050361,
+    "n": 74
+   },
+   {
+    "rate": 5.5,
+    "water": 660.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 660.0,
+    "n": 74
+   },
+   {
+    "rate": 5.75,
+    "water": 690.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 690.0,
+    "n": 74
+   },
+   {
+    "rate": 6.0,
+    "water": 720.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 720.0,
+    "n": 74
+   },
+   {
+    "rate": 6.25,
+    "water": 750.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 750.0,
+    "n": 74
+   },
+   {
+    "rate": 6.5,
+    "water": 780.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 780.0,
+    "n": 74
+   },
+   {
+    "rate": 6.75,
+    "water": 810.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 810.0,
+    "n": 74
+   },
+   {
+    "rate": 7.0,
+    "water": 840.0,
+    "water_sd": 0.0,
+    "mean_yield": 1.0,
+    "p5_yield": 1.0,
+    "cvar5_yield": 1.0,
+    "worst_yield": 1.0,
+    "water_per_yield": 840.0,
+    "n": 74
+   }
+  ]
+ },
+ "region_width_mm": {
+  "iid_linear": 288.532246,
+  "noaa_linear": 346.661862,
+  "noaa_fao33": 301.170174
+ },
+ "max_tail_gap": {
+  "iid_linear": 0.24494,
+  "noaa_linear": 0.509331,
+  "noaa_fao33": 0.490003
+ },
+ "pan_check": {
+  "days": 18645,
+  "years": [
+   1948,
+   2002
+  ],
+  "monthly": [
+   {
+    "month": 1,
+    "et0": 2.75077,
+    "pan": 2.879663,
+    "ratio": 0.95524
+   },
+   {
+    "month": 2,
+    "et0": 3.367982,
+    "pan": 3.769043,
+    "ratio": 0.893591
+   },
+   {
+    "month": 3,
+    "et0": 4.215386,
+    "pan": 4.882746,
+    "ratio": 0.863323
+   },
+   {
+    "month": 4,
+    "et0": 5.065575,
+    "pan": 5.759177,
+    "ratio": 0.879566
+   },
+   {
+    "month": 5,
+    "et0": 5.568466,
+    "pan": 6.053899,
+    "ratio": 0.919815
+   },
+   {
+    "month": 6,
+    "et0": 5.606692,
+    "pan": 5.578094,
+    "ratio": 1.005127
+   },
+   {
+    "month": 7,
+    "et0": 5.63658,
+    "pan": 5.399738,
+    "ratio": 1.043862
+   },
+   {
+    "month": 8,
+    "et0": 5.349172,
+    "pan": 5.260179,
+    "ratio": 1.016918
+   },
+   {
+    "month": 9,
+    "et0": 4.608988,
+    "pan": 4.590234,
+    "ratio": 1.004086
+   },
+   {
+    "month": 10,
+    "et0": 3.734129,
+    "pan": 4.031872,
+    "ratio": 0.926153
+   },
+   {
+    "month": 11,
+    "et0": 2.978705,
+    "pan": 3.20547,
+    "ratio": 0.929257
+   },
+   {
+    "month": 12,
+    "et0": 2.590735,
+    "pan": 2.726529,
+    "ratio": 0.950195
+   }
+  ],
+  "overall_ratio": 0.950567,
+  "annual_et0_mm": 1564.453167
+ },
+ "seasons": [
+  {
+   "year": 1925,
+   "rain": 508.0,
+   "et0": 604.261777,
+   "rainfed_yield": 0.561964
+  },
+  {
+   "year": 1926,
+   "rain": 406.9,
+   "et0": 609.726122,
+   "rainfed_yield": 0.160023
+  },
+  {
+   "year": 1927,
+   "rain": 361.9,
+   "et0": 648.204965,
+   "rainfed_yield": 0.382551
+  },
+  {
+   "year": 1928,
+   "rain": 442.5,
+   "et0": 632.340574,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1930,
+   "rain": 858.1,
+   "et0": 552.947998,
+   "rainfed_yield": 0.773825
+  },
+  {
+   "year": 1931,
+   "rain": 305.9,
+   "et0": 606.352146,
+   "rainfed_yield": 0.457665
+  },
+  {
+   "year": 1932,
+   "rain": 588.6,
+   "et0": 596.684171,
+   "rainfed_yield": 0.05347
+  },
+  {
+   "year": 1933,
+   "rain": 651.7,
+   "et0": 608.255479,
+   "rainfed_yield": 0.267969
+  },
+  {
+   "year": 1934,
+   "rain": 642.0,
+   "et0": 588.689405,
+   "rainfed_yield": 0.330386
+  },
+  {
+   "year": 1935,
+   "rain": 366.8,
+   "et0": 656.237873,
+   "rainfed_yield": 0.284253
+  },
+  {
+   "year": 1936,
+   "rain": 745.3,
+   "et0": 587.769575,
+   "rainfed_yield": 0.214811
+  },
+  {
+   "year": 1937,
+   "rain": 531.6,
+   "et0": 598.172945,
+   "rainfed_yield": 0.468752
+  },
+  {
+   "year": 1938,
+   "rain": 300.5,
+   "et0": 625.968429,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1939,
+   "rain": 485.2,
+   "et0": 633.831201,
+   "rainfed_yield": 0.587598
+  },
+  {
+   "year": 1940,
+   "rain": 482.4,
+   "et0": 603.858747,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1941,
+   "rain": 451.5,
+   "et0": 595.174773,
+   "rainfed_yield": 0.31102
+  },
+  {
+   "year": 1942,
+   "rain": 969.2,
+   "et0": 578.355344,
+   "rainfed_yield": 0.215702
+  },
+  {
+   "year": 1943,
+   "rain": 336.4,
+   "et0": 631.349977,
+   "rainfed_yield": 0.006789
+  },
+  {
+   "year": 1944,
+   "rain": 377.7,
+   "et0": 637.582895,
+   "rainfed_yield": 0.20221
+  },
+  {
+   "year": 1945,
+   "rain": 295.9,
+   "et0": 673.41205,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1946,
+   "rain": 541.0,
+   "et0": 610.314966,
+   "rainfed_yield": 0.031519
+  },
+  {
+   "year": 1947,
+   "rain": 827.0,
+   "et0": 606.196417,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1948,
+   "rain": 400.0,
+   "et0": 642.837801,
+   "rainfed_yield": 0.392057
+  },
+  {
+   "year": 1949,
+   "rain": 384.9,
+   "et0": 639.456086,
+   "rainfed_yield": 0.25608
+  },
+  {
+   "year": 1950,
+   "rain": 289.8,
+   "et0": 664.052884,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1951,
+   "rain": 457.5,
+   "et0": 622.666757,
+   "rainfed_yield": 0.14666
+  },
+  {
+   "year": 1952,
+   "rain": 348.6,
+   "et0": 608.632385,
+   "rainfed_yield": 0.256891
+  },
+  {
+   "year": 1953,
+   "rain": 235.4,
+   "et0": 626.909591,
+   "rainfed_yield": 0.003411
+  },
+  {
+   "year": 1954,
+   "rain": 654.7,
+   "et0": 586.840955,
+   "rainfed_yield": 0.766167
+  },
+  {
+   "year": 1955,
+   "rain": 491.9,
+   "et0": 634.948812,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1956,
+   "rain": 200.9,
+   "et0": 622.017875,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1957,
+   "rain": 568.7,
+   "et0": 582.875035,
+   "rainfed_yield": 0.958642
+  },
+  {
+   "year": 1958,
+   "rain": 628.0,
+   "et0": 567.646409,
+   "rainfed_yield": 0.493819
+  },
+  {
+   "year": 1959,
+   "rain": 656.8,
+   "et0": 577.492324,
+   "rainfed_yield": 0.107153
+  },
+  {
+   "year": 1960,
+   "rain": 476.3,
+   "et0": 590.152811,
+   "rainfed_yield": 0.626346
+  },
+  {
+   "year": 1961,
+   "rain": 448.9,
+   "et0": 611.236289,
+   "rainfed_yield": 0.022875
+  },
+  {
+   "year": 1962,
+   "rain": 531.2,
+   "et0": 606.662182,
+   "rainfed_yield": 0.329505
+  },
+  {
+   "year": 1963,
+   "rain": 420.3,
+   "et0": 607.681334,
+   "rainfed_yield": 0.273363
+  },
+  {
+   "year": 1964,
+   "rain": 283.2,
+   "et0": 608.048346,
+   "rainfed_yield": 0.33389
+  },
+  {
+   "year": 1965,
+   "rain": 408.4,
+   "et0": 623.482828,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1966,
+   "rain": 481.4,
+   "et0": 586.152347,
+   "rainfed_yield": 0.257384
+  },
+  {
+   "year": 1967,
+   "rain": 197.7,
+   "et0": 633.429892,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1968,
+   "rain": 695.2,
+   "et0": 582.161642,
+   "rainfed_yield": 0.27889
+  },
+  {
+   "year": 1969,
+   "rain": 759.8,
+   "et0": 560.985873,
+   "rainfed_yield": 0.735459
+  },
+  {
+   "year": 1970,
+   "rain": 722.9,
+   "et0": 580.139892,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1971,
+   "rain": 445.5,
+   "et0": 630.965487,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1972,
+   "rain": 596.0,
+   "et0": 584.253821,
+   "rainfed_yield": 0.93777
+  },
+  {
+   "year": 1973,
+   "rain": 536.5,
+   "et0": 604.56179,
+   "rainfed_yield": 0.030207
+  },
+  {
+   "year": 1974,
+   "rain": 397.2,
+   "et0": 619.729265,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1975,
+   "rain": 377.8,
+   "et0": 623.453158,
+   "rainfed_yield": 0.047729
+  },
+  {
+   "year": 1976,
+   "rain": 339.6,
+   "et0": 583.154773,
+   "rainfed_yield": 0.012042
+  },
+  {
+   "year": 1977,
+   "rain": 260.4,
+   "et0": 601.121585,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1978,
+   "rain": 550.6,
+   "et0": 584.922527,
+   "rainfed_yield": 0.651848
+  },
+  {
+   "year": 1979,
+   "rain": 325.5,
+   "et0": 586.75971,
+   "rainfed_yield": 0.383064
+  },
+  {
+   "year": 1980,
+   "rain": 390.5,
+   "et0": 589.792356,
+   "rainfed_yield": 0.340764
+  },
+  {
+   "year": 1981,
+   "rain": 299.9,
+   "et0": 609.368891,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1983,
+   "rain": 428.7,
+   "et0": 602.703385,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1984,
+   "rain": 518.6,
+   "et0": 592.317589,
+   "rainfed_yield": 0.026696
+  },
+  {
+   "year": 1985,
+   "rain": 358.2,
+   "et0": 636.098456,
+   "rainfed_yield": 0.352038
+  },
+  {
+   "year": 1986,
+   "rain": 377.6,
+   "et0": 615.173512,
+   "rainfed_yield": 0.09861
+  },
+  {
+   "year": 1987,
+   "rain": 319.9,
+   "et0": 607.338817,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1988,
+   "rain": 246.2,
+   "et0": 612.551689,
+   "rainfed_yield": 0.026142
+  },
+  {
+   "year": 1989,
+   "rain": 252.1,
+   "et0": 643.185658,
+   "rainfed_yield": 0.113266
+  },
+  {
+   "year": 1990,
+   "rain": 396.0,
+   "et0": 625.886297,
+   "rainfed_yield": 0.210745
+  },
+  {
+   "year": 1991,
+   "rain": 492.9,
+   "et0": 616.761933,
+   "rainfed_yield": 0.464714
+  },
+  {
+   "year": 1992,
+   "rain": 509.7,
+   "et0": 607.72347,
+   "rainfed_yield": 0.25628
+  },
+  {
+   "year": 1993,
+   "rain": 365.5,
+   "et0": 618.275578,
+   "rainfed_yield": 0.057874
+  },
+  {
+   "year": 1994,
+   "rain": 457.3,
+   "et0": 633.615937,
+   "rainfed_yield": 0.318308
+  },
+  {
+   "year": 1995,
+   "rain": 384.5,
+   "et0": 625.336908,
+   "rainfed_yield": 0.142702
+  },
+  {
+   "year": 1996,
+   "rain": 666.7,
+   "et0": 594.057171,
+   "rainfed_yield": 0.199098
+  },
+  {
+   "year": 1997,
+   "rain": 553.3,
+   "et0": 611.238712,
+   "rainfed_yield": 0.346632
+  },
+  {
+   "year": 1998,
+   "rain": 233.1,
+   "et0": 633.780989,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 1999,
+   "rain": 372.8,
+   "et0": 627.459807,
+   "rainfed_yield": 0.0
+  },
+  {
+   "year": 2001,
+   "rain": 380.7,
+   "et0": 655.84448,
+   "rainfed_yield": 0.0
+  }
+ ],
+ "n_seasons": 74,
+ "prcp_days_filled": 7
+}

@@ -1,0 +1,6 @@
+ppo_k6          377s  water  164.6±6.3  meanY 0.924±0.012  CVaR5 0.787±0.040  worst 0.764
+wrote /home/user/tailwater/results/agents.json
+ppo_k7          367s  water  183.4±4.0  meanY 0.957±0.008  CVaR5 0.870±0.022  worst 0.853
+wrote /home/user/tailwater/results/agents.json
+ppo_k8          382s  water  193.0±1.5  meanY 0.973±0.005  CVaR5 0.917±0.016  worst 0.902
+wrote /home/user/tailwater/results/agents.json
