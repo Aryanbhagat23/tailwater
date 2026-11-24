@@ -78,6 +78,11 @@ from the rain-fed point.
 ![learning curves](results/figures/learning_curves.png)
 
 
+## Report and notebook
+
+* Written report: [`report/Tailwater_Report_Aryan_Bhagat.pdf`](report/Tailwater_Report_Aryan_Bhagat.pdf) (also `.docx`; source `report/report.md`).
+* Colab notebook: [`notebooks/tailwater_colab.ipynb`](notebooks/tailwater_colab.ipynb). [Open in Colab](https://colab.research.google.com/github/Aryanbhagat23/tailwater/blob/main/notebooks/tailwater_colab.ipynb).
+
 ## How it works
 
 | Component | Definition |
@@ -127,6 +132,7 @@ python run_baseline_sweep.py                 # every baseline family, tuned per 
 python run_agents.py                         # 11 configs x 4 folds x 5 seeds (~65 min, 4 cores)
 python run_robustness.py                     # climate wetness and forecast-noise sweeps
 python run_frontier.py                       # figures + results/summary.md
+python make_report_figures.py                # case study + policy map for the report
 python export_site.py && node ../site/check_sim.js   # build docs/index.html, verify JS port
 streamlit run ../app/streamlit_app.py        # optional local app
 ```

@@ -1,0 +1,175 @@
+{
+ "year": 1967,
+ "fold": 1,
+ "season_rain": 197.7,
+ "controllers": {
+  "Rain-fed": {
+   "water": 0.0,
+   "yield": 0.0,
+   "label": "rain-fed"
+  },
+  "ET controller": {
+   "water": 340.0,
+   "yield": 0.957979,
+   "label": "ET controller(trigger=60.0, refill=0.5)"
+  },
+  "Stage threshold": {
+   "water": 330.0,
+   "yield": 0.916293,
+   "label": "stage threshold(trigger_tolerant=40.0, trigger_sensitive=45.0, amount=10.0)"
+  },
+  "CVaR-PPO (floor 0.90)": {
+   "water": 315.0,
+   "yield": 0.967297,
+   "label": "PPO"
+  }
+ },
+ "sequence": [
+  {
+   "day": 53,
+   "stage": "vegetative",
+   "moisture_morning": 58.771611,
+   "forecast_3d": 0.0,
+   "et0": 5.276634,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 57.846705
+  },
+  {
+   "day": 54,
+   "stage": "vegetative",
+   "moisture_morning": 57.846705,
+   "forecast_3d": 0.0,
+   "et0": 5.047079,
+   "rain": 0.0,
+   "action_mm": 10.0,
+   "moisture_evening": 62.049775
+  },
+  {
+   "day": 55,
+   "stage": "vegetative",
+   "moisture_morning": 62.049775,
+   "forecast_3d": 0.0,
+   "et0": 5.394901,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 60.714619
+  },
+  {
+   "day": 56,
+   "stage": "flowering",
+   "moisture_morning": 60.714619,
+   "forecast_3d": 0.0,
+   "et0": 5.949324,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 58.57543
+  },
+  {
+   "day": 57,
+   "stage": "flowering",
+   "moisture_morning": 58.57543,
+   "forecast_3d": 0.0,
+   "et0": 5.394477,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 57.102057
+  },
+  {
+   "day": 58,
+   "stage": "flowering",
+   "moisture_morning": 57.102057,
+   "forecast_3d": 0.0,
+   "et0": 5.333193,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 55.702226
+  },
+  {
+   "day": 59,
+   "stage": "flowering",
+   "moisture_morning": 55.702226,
+   "forecast_3d": 4.907745,
+   "et0": 5.905229,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 53.615951
+  },
+  {
+   "day": 60,
+   "stage": "flowering",
+   "moisture_morning": 53.615951,
+   "forecast_3d": 0.0,
+   "et0": 5.797481,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 51.658975
+  },
+  {
+   "day": 61,
+   "stage": "flowering",
+   "moisture_morning": 51.658975,
+   "forecast_3d": 0.0,
+   "et0": 5.01986,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 50.635142
+  },
+  {
+   "day": 62,
+   "stage": "flowering",
+   "moisture_morning": 50.635142,
+   "forecast_3d": 0.0,
+   "et0": 5.116279,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 49.495608
+  },
+  {
+   "day": 63,
+   "stage": "flowering",
+   "moisture_morning": 49.495608,
+   "forecast_3d": 0.0,
+   "et0": 5.253158,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 48.191818
+  },
+  {
+   "day": 64,
+   "stage": "flowering",
+   "moisture_morning": 48.191818,
+   "forecast_3d": 0.0,
+   "et0": 5.570222,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 46.507551
+  },
+  {
+   "day": 65,
+   "stage": "flowering",
+   "moisture_morning": 46.507551,
+   "forecast_3d": 0.0,
+   "et0": 5.66495,
+   "rain": 0.0,
+   "action_mm": 10.0,
+   "moisture_evening": 49.709611
+  },
+  {
+   "day": 66,
+   "stage": "flowering",
+   "moisture_morning": 49.709611,
+   "forecast_3d": 0.0,
+   "et0": 5.311662,
+   "rain": 0.0,
+   "action_mm": 5.0,
+   "moisture_evening": 48.335616
+  }
+ ],
+ "policy_map_share": {
+  "0mm": 0.5305,
+  "5mm": 0.164667,
+  "10mm": 0.304833,
+  "20mm": 0.0
+ }
+}
